@@ -11,7 +11,7 @@ const RegisterForm = ({ values, errors, touched }) => {
 
     return (
         <RegistrationPage>
-            <h1>DIY Tracker Sign Up</h1>
+            <h1>Better Professor</h1>
             <div className="register-page">
                 <Form>
                     <div className="input-box">
