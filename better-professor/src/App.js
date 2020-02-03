@@ -1,15 +1,5 @@
 import React from 'react';
 
-<<<<<<< HEAD
-import AddStudent from "./components/AddStudent";
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <AddStudent />
-    </div>
-=======
 import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -40,7 +30,6 @@ function App() {
         </Switch>
       </Wrapper>
     </>
->>>>>>> 04d69baa5976102fd1d4c19deebd03029bd40771
   );
 }
 
