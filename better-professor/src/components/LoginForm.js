@@ -5,23 +5,6 @@ import * as Yup from 'yup';
 import styled from 'styled-components';
 
 
-const FormPage = styled.div`
-  text-align: center;
-  color: #7A7878;
-  background-color: #EDC7C5;
-  padding: 10px;
-  .input-box {
-    border: 1px solid #EDC7C5;
-  }
-  .login-button {
-    color: #EDC7C5;
-    background-color: #7A7878;
-    border-radius: 12px;
-    font-weight: bold;
-    padding: 5px;
-  }
-`;
-
 
 const LoginForm = ({ values, errors, touched, status }) => {
 

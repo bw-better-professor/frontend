@@ -7,11 +7,6 @@ import PrivateRoute from './components/PrivateRoute';
 import Login from './routes/Login';
 import Register from './routes/Register';
 
-const Wrapper = styled.div`
-  height: 100vh;
-  overflow: hidden;
-  overflow-y: scroll;
-`;
 
 function App() {
   return (
