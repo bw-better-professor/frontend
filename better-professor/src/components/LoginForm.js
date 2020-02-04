@@ -1,75 +1,70 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
-import styled from "styled-components";
+import React from "react";
 
-export const LoginForm = ({ values, errors, touched, status }) => {
-  const [userCredentials, setUserCredentials] = useState([]);
+import { useForm } from "react-hook-form";
+import ErrorMessage from "./ErrorMessage";
 
-  // const { handleLogin } = useAuth();
-
-  useEffect(() => {
-    status && setUserCredentials(member => [...member, status]);
-  }, [status]);
+const LoginForm = () => {
+    const {
+      register,
+      handleSubmit,
+      errors,
+      setError,
+      clearError,
+      formState: { isSubmitting }
+    } = useForm();
+    const onSubmit = data => {
+      alert(JSON.stringify(data));
+    };
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+    const validateUserName = async value => {
+      await sleep(1000);
+      if (value !== "bill") {
+        setError("username", "validate");
+      } else {
+        clearError("username");
+      }
+    };
 
   return (
-    // <FormPage>
-    <div>
-      <h1>Better Professor</h1>
-      <div className="form-page">
-        <Form>
-          <div className="input-box">
-            <Field
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Enter your username"
-            />
-            {touched.username && errors.username && <p>{errors.username}</p>}
-          </div>
-          <div className="input-box">
-            <Field
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter your password"
-            />
-            {touched.password && errors.password && <p>{errors.password}</p>}
-          </div>
-          <div>
-            <button className="login-button" type="submit">
-              Login
-            </button>
-          </div>
-        </Form>
-      </div>
-    </div>
-    // </FormPage>
+    <form className="App" onSubmit={handleSubmit(onSubmit)}>
+      <h1>Login</h1>
+      <label>Email</label>
+      <input name="Email" ref={register({ required: true })} />
+      <ErrorMessage error={errors.firstName} />
+
+      <label>Password</label>
+      <input name="PassWord" ref={register({ required: true, minLength: 2 })} />
+      <ErrorMessage error={errors.firstName} />
+
+      
+      <ErrorMessage error={errors.gender} />
+
+      
+        
+        {e => validateUserName(e.target.value)}
+        {register({ required: true, validate: validateUserName })}
+      
+      <ErrorMessage error={errors.username} />
+
+      
+        
+        {register({ required: true, pattern: /^\S+@\S+$/i })}
+      
+      <ErrorMessage error={errors.email} />
+
+      
+        
+        {register({ required: true, min: 18 })}
+      
+      <ErrorMessage error={errors.age} />
+
+      
+
+      <input disabled={isSubmitting} type="submit" />
+    </form>
   );
-};
+}
 
-const FormikLoginForm = withFormik({
-  mapPropsToValues({ username, password }) {
-    return {
-      username: username || "",
-      password: password || ""
-    };
-  },
-  validationSchema: Yup.object().shape({
-    username: Yup.string().required("Username Required"),
-    password: Yup.string().required("Password Required")
-  }),
-  handleSubmit(values, { setStatus }) {
-    /// handleLogin(values)
-    axios
-      .post("https://betterprofessor25.herokuapp.com/api/auth/login", values)
-      .then(res => {
-        console.log(res.data);
-        setStatus(res.data);
-      })
-      .catch(err => console.log(err.res));
-  }
-})(LoginForm);
+export default LoginForm;
 
-export default FormikLoginForm;
+

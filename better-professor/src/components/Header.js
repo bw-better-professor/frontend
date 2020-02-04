@@ -17,7 +17,7 @@ function Header() {
         </div>
       </HLeft>
       <HRight>
-        <Link id="header-login">Login</Link>
+        <Link id="header-login" to="/">Login</Link>
       </HRight>
     </Head>
   );
