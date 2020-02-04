@@ -5,8 +5,6 @@ import { useForm } from "react-hook-form";
 import ErrorMessage from "./components/ErrorMessage";
 import "./App.css";
 
-
-
 function App() {
     const {
       register,
