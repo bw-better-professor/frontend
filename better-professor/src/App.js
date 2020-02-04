@@ -29,11 +29,11 @@ function App() {
           <RegForm />
         </Route>
         <PrivateRoute path="/dashboard" component={StudentList} />
-        <Route path="/student/:id" render={props=> {
+        <PrivateRoute path="/student/:id" render={props=> {
           return <StudentDetails {...props} /> 
           }} />
-        <Route path="/addstudent" component={AddStudent} />
-        <Route path="/addproject/:id" render={props=> {
+        <PrivateRoute path="/addstudent" component={AddStudent} />
+        <PrivateRoute path="/addproject/:id" render={props=> {
           return <AddProject {...props} /> 
           }} />
         <Route component={LoginForm} />
