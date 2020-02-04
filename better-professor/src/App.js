@@ -22,17 +22,17 @@ function App() {
       <Navigation />
 
       <Switch>
-        <Route exact path="/" component={LoginForm} /> 
+        <Route exact path="/" component={LoginForm} />
         <Route path="/registration">
           <RegForm />
         </Route>
         <PrivateRoute path="/dashboard" component={StudentList} />
         <Route path="/student/:id" render={props=> {
-          return <StudentDetails {...props} /> 
-          }} />
+          return <StudentDetails {...props} />
+        }} />
         <Route path="/addstudent" component={AddStudent} />
         <Route path="/addproject/:id" render={props=> {
-          return <AddProject {...props} /> 
+          return <AddProject {...props} />
           }} />
         <Route component={LoginForm} />
       </Switch>
@@ -41,4 +41,3 @@ function App() {
 }
 
 export default App;
-

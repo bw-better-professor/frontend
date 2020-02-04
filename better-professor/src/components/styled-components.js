@@ -13,6 +13,7 @@ export const FormField = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0;
 `;
 
 export const FormInfo = styled.div`
@@ -28,6 +29,7 @@ export const Input = styled.input`
   border-radius: 5px;
   padding: .5rem;
   width: 30rem;
+  margin-bottom: 0;
 
   &:focus {
     border-color: dodgerblue;
@@ -42,8 +44,9 @@ export const Button = styled.button`
   border-style: none;
   color: white;
   transition: .25s;
+  text-transform: capitalize;
 
-  &:hover {
+  &[type="submit"]:hover {
     background-color: #0A2738;
   }
 `;
