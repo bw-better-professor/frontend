@@ -11,6 +11,10 @@ import Header from './components/Header';
 import Navigation from './components/Navigation';
 import RegForm from './components/Registration';
 import LoginForm from "./components/LoginForm";
+import StudentList from "./components/StudentList";
+import AddStudent from "./components/AddStudent";
+import AddProject from "./components/AddProject";
+import StudentDetails from "./components/StudentDetails";
 
 function App() {
   return (
@@ -23,6 +27,14 @@ function App() {
         <Route path="/registration">
           <RegForm />
         </Route>
+        <PrivateRoute path="/dashboard" component={StudentList} />
+        <Route path="/student/:id" render={props=> {
+          return <StudentDetails {...props} /> 
+          }} />
+        <Route path="/addstudent" component={AddStudent} />
+        <Route path="/addproject/:id" render={props=> {
+          return <AddProject {...props} /> 
+          }} />
         <Route component={LoginForm} />
       </Switch>
     </>
