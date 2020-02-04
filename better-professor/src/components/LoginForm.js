@@ -1,9 +1,12 @@
 import React from "react";
+import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
 
 const LoginForm = () => {
+    const history = useHistory();
     const {
       register,
       handleSubmit,
@@ -12,9 +15,24 @@ const LoginForm = () => {
       clearError,
       formState: { isSubmitting }
     } = useForm();
+
     const onSubmit = data => {
-      alert(JSON.stringify(data));
-    };
+      const username = data.Email;
+      const password = data.PassWord;
+    
+      axios
+      .post(`https://betterprofessor25.herokuapp.com/api/auth/login`, {username, password})
+      .then(res=> {
+          console.log("login successfull")
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("professorID", res.data.id);
+          history.push("/dashboard")
+      })
+      .catch(err=>{
+          console.log(err, "failed to login")
+      })
+    }
+    
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     const validateUserName = async value => {
       await sleep(1000);
@@ -26,7 +44,7 @@ const LoginForm = () => {
     };
 
   return (
-    <form className="App" onSubmit={handleSubmit(onSubmit)}>
+    <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
       <h1>Login</h1>
       <label>Email</label>
       <input name="Email" ref={register({ required: true })} />

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useHistory} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 
@@ -14,6 +14,8 @@ const initialState = {
 
 const AddProject = (props) => {
     const history = useHistory();
+    const {id} = useParams();
+    console.log(id)
     const [project, setProject] = useState(initialState);
 
     const handleChanges = e => {
@@ -27,9 +29,10 @@ const AddProject = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        console.log(parseInt(id))
         axiosWithAuth()
         .post(`/api/projects`, {
-            student_id: 1,
+            student_id: id,
             title: project.title,
             due_date: project.due_date,
             reminder_time: project.reminder_time,

@@ -13,11 +13,13 @@ import {
 const StudentList = () => {
   const [studentState, setStudentState] = useState([]);
 
+  const id = localStorage.getItem("professorID");
+
   useEffect(() => {
     axiosWithAuth()
-      .get("/students")
+      .get(`api/users/${id}/students`)
       .then(res => {
-        setStudentstate(res.data);
+        setStudentState(res.data);
       })
       .catch(err => console.log(err));
   }, []);
@@ -27,17 +29,21 @@ const StudentList = () => {
       <div>
         {studentState.map(student => {
           return (
-            <Card key={student.id}>
-              <CardImg src={student.image_url} alt="card-group" />
-              <CardBody>
-                <CardTitle>Name:{student.name}</CardTitle>
-                <CardText>Email:{student.email}</CardText>
-                <Button>Add Project</Button>
-              </CardBody>
-            </Card>
+            <Link to={`/student/${student.studentId}`}>
+              <Card key={student.id}>
+                {/* <CardImg src={student.image_url} alt="card-group" /> */}
+                <CardBody>
+                  <CardTitle>Name:{student.name}</CardTitle>
+                  <CardText>Email:{student.email}</CardText>
+                  <Link to={`/addproject/${student.studentId}`}>
+                    <Button>Add Project</Button>
+                  </Link>
+                </CardBody>
+              </Card>
+            </Link>
           );
         })}
-        <Link>
+        <Link to="/addstudent">
           <Button> Add Student </Button>
         </Link>
       </div>
