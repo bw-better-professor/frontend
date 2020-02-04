@@ -8,3 +8,43 @@ p {
   margin-top: .5rem;
   font-size: 1.3rem;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.8rem;
+  margin-right: .5rem;
+  margin-left: 1rem;
+  transition: .25s;
+}
+
+a:hover {
+  font-size: 1.6rem;
+  color: #bbb;
+  border-bottom: solid 1px #bbb;
+}
+
+.h-left {
+  margin-left: 1rem;
+  text-align: center;
+  margin-bottom: .5rem;
+}
+
+#app-name {
+  font-size: 4rem;
+  font-weight: bold;
+  color: dodgerblue;
+}
+
+#app-description {
+  font-size: 2rem;
+  color: #0A2738;
+}
+
+#header-login {
+  color: dodgerblue;
+}
+#header-login:hover {
+  color: #0A2738;
+  border-bottom: solid 1px #0A2738;
+}
