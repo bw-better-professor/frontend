@@ -57,7 +57,7 @@ function RegForm() {
       </FormField>
       {/* SIGN UP PAGE IMG */}
       <div>
-        <img src="imgs/signUpPageGraphic.jpg" alt="Sign up page graphic"/>
+        <img src="./imgs/signUpPageGraphic.jpg" alt="Sign up page graphic"/>
       </div>
     </FormPage>
   );
