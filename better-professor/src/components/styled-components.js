@@ -76,7 +76,7 @@ export const HRight = styled.div`
 
 
 
-const Buttons = styled.button`
+export const Buttons = styled.button`
 
 background: dodgerblue;
   color: white;
@@ -91,7 +91,7 @@ background: dodgerblue;
 
 `
 
-const LoginForm = styled.textarea`
+export const LoginForm = styled.div`
 display: block;
 box-sizing: border-box;
 width: 100%;

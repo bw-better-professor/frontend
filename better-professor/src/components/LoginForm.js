@@ -4,15 +4,10 @@ import {useHistory} from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
-import styled from 'styled-components';
+import {LoginForm} from './styled-components';
 
 
-
-
-
-
-
-const LoginForm = () => {
+const Login2Form = () => {
     const history = useHistory();
     const {
       register,
@@ -94,6 +89,6 @@ const LoginForm = () => {
   );
 }
 
-export default LoginForm;
+export default Login2Form;
 
 
