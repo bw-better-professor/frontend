@@ -1,10 +1,16 @@
-
 import React from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
+import styled from 'styled-components';
+
+
+
+
+
+
 
 const LoginForm = () => {
     const history = useHistory();
@@ -45,12 +51,13 @@ const LoginForm = () => {
     };
 
   return (
+      <LoginForm>
     <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
       <h1>Login</h1>
       <label>Email</label>
       <input name="Email" ref={register({ required: true })} />
       <ErrorMessage error={errors.firstName} />
-
+      
       <label>Password</label>
       <input name="PassWord" ref={register({ required: true, minLength: 2 })} />
       <ErrorMessage error={errors.firstName} />
@@ -78,13 +85,15 @@ const LoginForm = () => {
       <ErrorMessage error={errors.age} />
 
       
-
+     <buttons>
       <input disabled={isSubmitting} type="submit" />
+      </buttons>
     </form>
+    </LoginForm>
+    
   );
 }
 
 export default LoginForm;
-
 
 

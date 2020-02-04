@@ -45,6 +45,7 @@ p::before {
 
 textarea,
 input {
+  
   display: block;
   box-sizing: border-box;
   width: 100%;
