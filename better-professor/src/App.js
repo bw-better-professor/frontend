@@ -6,9 +6,9 @@ import RegForm from './components/Registration';
 
 function App() {
   return (
-    <div>
+    <html>
       <RegForm />
-    </div>
+    </html>
   );
 }
 

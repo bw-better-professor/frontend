@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+input, label, button {
+  font-family: 'Roboto Slab', serif;
+}
+
+p {
+  margin-top: .5rem;
+  font-size: 1.3rem;
+}
