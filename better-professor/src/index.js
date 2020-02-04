@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./components/ErrorMessage";
@@ -69,5 +70,5 @@ function App() {
   }
   
   const rootElement = document.getElementById("root");
-  ReactDOM.render(<App />, rootElement);
+  ReactDOM.render(<Router><App /></Router>, rootElement);
   
