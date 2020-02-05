@@ -27,25 +27,23 @@ const StudentList = () => {
   return (
     <div>
       <div>
+        <Link to="/addstudent">
+          <Button> Add Student </Button>
+        </Link>
         {studentState.map(student => {
           return (
+
             <Link to={`/student/${student.studentId}`} key={student.studentId}>
               <Card>
                 {/* <CardImg src={student.image_url} alt="card-group" /> */}
                 <CardBody>
-                  <CardTitle>Name: {student.name}</CardTitle>
-                  <CardText>Email: {student.email}</CardText>
-                  <Link to={`/addproject/${student.studentId}`}>
-                    <Button>Add Project</Button>
-                  </Link>
+                    <CardTitle>Name: {student.name}</CardTitle>
+                    <CardText>Email: {student.email}</CardText>
                 </CardBody>
               </Card>
             </Link>
           );
         })}
-        <Link to="/addstudent">
-          <Button> Add Student </Button>
-        </Link>
       </div>
     </div>
   );
