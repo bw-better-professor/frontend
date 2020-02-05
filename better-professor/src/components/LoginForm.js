@@ -1,12 +1,13 @@
-
 import React from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
+import {LoginForm} from './styled-components';
 
-const LoginForm = () => {
+
+const Login2Form = () => {
     const history = useHistory();
     const {
       register,
@@ -45,6 +46,7 @@ const LoginForm = () => {
     };
 
   return (
+      <LoginForm>
     <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
       <h1>Login</h1>
       <label>Email</label>
@@ -78,10 +80,13 @@ const LoginForm = () => {
       <ErrorMessage error={errors.age} />
 
 
-
+     <buttons>
       <input disabled={isSubmitting} type="submit" />
+      </buttons>
     </form>
+    </LoginForm>
+
   );
 }
 
-export default LoginForm;
+export default Login2Form;

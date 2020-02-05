@@ -76,3 +76,33 @@ export const HRight = styled.div`
   align-items: center;
   margin-right: .5rem;
 `;
+
+
+
+export const Buttons = styled.button`
+
+background: dodgerblue;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 10px;
+
+
+`
+
+export const LoginForm = styled.div`
+display: block;
+box-sizing: border-box;
+width: 100%;
+border-radius: 4px;
+border: 1px solid gray;
+padding: 10px 15px;
+margin-bottom: 10px;
+font-size: 14px;
+`
+
+
