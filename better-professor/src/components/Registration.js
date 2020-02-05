@@ -39,7 +39,7 @@ function RegForm() {
       setPassword('');
       Axios
         .post(`https://betterprofessor25.herokuapp.com/api/auth/register`, {
-          "username": email.toString(), 
+          "username": email.toString(),
           "password": password.toString()
         })
         .then(res=> {
