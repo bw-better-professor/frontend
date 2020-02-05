@@ -24,7 +24,7 @@ function App() {
       <Navigation />
 
       <Switch>
-        <Route exact path="/" component={LoginForm} /> 
+        <Route exact path="/" component={LoginForm} />
         <Route path="/registration">
           <RegForm />
         </Route>
