@@ -21,7 +21,7 @@ const Login2Form = () => {
     const onSubmit = data => {
       const username = data.Email;
       const password = data.PassWord;
-    
+
       axios
       .post(`https://betterprofessor25.herokuapp.com/api/auth/login`, {username, password})
       .then(res=> {
@@ -34,7 +34,7 @@ const Login2Form = () => {
           console.log(err, "failed to login")
       })
     }
-    
+
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     const validateUserName = async value => {
       await sleep(1000);
@@ -52,43 +52,41 @@ const Login2Form = () => {
       <label>Email</label>
       <input name="Email" ref={register({ required: true })} />
       <ErrorMessage error={errors.firstName} />
-      
+
       <label>Password</label>
       <input name="PassWord" ref={register({ required: true, minLength: 2 })} />
       <ErrorMessage error={errors.firstName} />
 
-      
+
       <ErrorMessage error={errors.gender} />
 
-      
-        
+
+
         {e => validateUserName(e.target.value)}
         {register({ required: true, validate: validateUserName })}
-      
+
       <ErrorMessage error={errors.username} />
 
-      
-        
+
+
         {register({ required: true, pattern: /^\S+@\S+$/i })}
-      
+
       <ErrorMessage error={errors.email} />
 
-      
-        
+
+
         {register({ required: true, min: 18 })}
-      
+
       <ErrorMessage error={errors.age} />
 
-      
+
      <buttons>
       <input disabled={isSubmitting} type="submit" />
       </buttons>
     </form>
     </LoginForm>
-    
+
   );
 }
 
 export default Login2Form;
-
-

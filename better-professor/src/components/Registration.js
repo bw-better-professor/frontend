@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './styles.css';
-import Axios from "axios";
-import {useHistory} from "react-router-dom";
+import {useForm} from 'react-hook-form';
 import {FormPage,
         FormField,
         FormInfo,
@@ -10,58 +9,56 @@ import {FormPage,
         ImgDiv} from './styled-components';
 
 function RegForm() {
-  const history = useHistory();
-  const [userState, setUserState] = useState({username: "", password: "", confirmPassword: ""})
 
-  const handleChanges = e => {
-    const value = e.target.value;
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
 
-    setUserState({
-        ...userState,
-        [e.target.name]: value
-    })
-  }
+    const changesUser = e => {
+      setUser(e.target.value);
+    }
+    const changesPass = e => {
+      setPassword(e.target.value);
+    }
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const username = userState.username;
-    const password = userState.password;
-    Axios
-    .post(`https://betterprofessor25.herokuapp.com/api/auth/register`, {username, password})
-    .then(res=> {
-        console.log("successfully created a user.", res);
-        history.push(`/login`);
-    })
-    .catch(err=>{
-        console.log(err, "failed to register")
-    })
-}
+    const {
+      register,
+      handleSubmit,
+      errors} = useForm();
+
+    const onSubmit = e => {
+      e.preventDefault();
+      setUser('');
+      setPassword('');
+    };
 
   return(
     <FormPage>
-      <FormField>
+      <FormField onSubmit={handleSubmit}>
         {/* NAME */}
         <FormInfo>
-          {/* <label htmlFor="name">Full Name</label>
+          <label htmlFor="name">Full Name</label>
           <Input
             type="text"
             name="name"
             id="name"
             placeholder="Enter Full Name"
-            value={userState.name}
-          /> */}
+            onChange={changesUser}
+            value={user}
+            ref={register({ required: "Must enter full name" })}
+          />
+          {errors.name && <p>{errors.name.message}</p>}
         </FormInfo>
         {/* EMAIL */}
         <FormInfo>
-          <label htmlFor="email">Username</label>
+          <label htmlFor="email">Email</label>
           <Input
-            type="text"
-            name="username"
+            type="email"
+            name="email"
             id="email"
-            placeholder="Enter Username"
-            value={userState.username}
-            onChange={handleChanges}
+            placeholder="Enter Email Address"
+            ref={register({ required: "Must enter a valid email address" })}
           />
+          {errors.email && <p>{errors.email.message}</p>}
         </FormInfo>
         {/* PASSWORD */}
         <FormInfo>
@@ -71,9 +68,11 @@ function RegForm() {
             name="password"
             id="password"
             placeholder="Create a password"
-            value={userState.password}
-            onChange={handleChanges}
+            onChange={changesPass}
+            value={password}
+            ref={register({ required: "Must enter a password", minLength: 7 })}
           />
+          {errors.password && <p>{errors.password.message}</p>}
         </FormInfo>
         {/* CONFIRM PASSWORD */}
         <FormInfo>
@@ -81,18 +80,18 @@ function RegForm() {
           <Input
             type="password"
             name="confirmPassword"
-            id="confirm-password"
+            id="confirmPassword"
             placeholder="Re-enter password"
-            value={userState.confirmPassword}
-            onChange={handleChanges}
+            ref={register({ required: "Must confirm password", minLength: 7 })}
           />
+          {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
           <p>Password must be at least 7 characters long and contain one uppercase letter, one lowercase letter and one special character.</p>
         </FormInfo>
-        <Button type="submit" onClick={handleSubmit}>Create Account</Button>
+        <Button onClick={onSubmit} type="submit">Create Account</Button>
       </FormField>
       {/* SIGN UP PAGE IMG */}
-      <div>
-        <img src="./imgs/signUpPageGraphic.jpg" alt="Sign up page graphic"/>
+      <div id="signUp">
+        {/* Sign Up Graphic Here */}
       </div>
     </FormPage>
   );
