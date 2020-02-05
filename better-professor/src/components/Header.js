@@ -7,24 +7,17 @@ import {Head,
 
 function Header() {
 
-  const delToken = () => {
-    localStorage.removeItem("token"); 
-    localStorage.removeItem("professorID");
-    window.location.reload();
-  }
-
   return(
     <Head>
       <HLeft>
         <img src="./imgs/BPALogo.png" alt="BPA Logo"/>
         <div className="h-left">
           <h1 id="app-name">Better Professor</h1>
-          <p id="app-description">Deadline Management App</p>
+          <span id="app-description">Deadline Management App</span>
         </div>
       </HLeft>
       <HRight>
-        <Link id="header-login" to="/">Login</Link>
-        <Link id="header-login" to="/" onClick={()=>delToken()}>Logout</Link>
+        <Link id="header-login">Login</Link>
       </HRight>
     </Head>
   );
