@@ -35,9 +35,6 @@ const StudentList = () => {
                 <CardBody>
                     <CardTitle>Name: {student.name}</CardTitle>
                     <CardText>Email: {student.email}</CardText>
-                    <Link to={`/addproject/${student.studentId}`}>
-                      <Button>Add Project</Button>
-                    </Link>
                 </CardBody>
               </Card>
             </Link>

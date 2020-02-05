@@ -17,6 +17,7 @@ import AddStudent from "./components/AddStudent";
 import AddProject from "./components/AddProject";
 import StudentDetails from "./components/StudentDetails";
 import EditStudent from "./components/EditStudent";
+import EditProject from "./components/EditProject";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           }} />
         <PrivateRoute path="/addstudent" component={AddStudent} />
         <PrivateRoute path="/editstudent/:id" component={EditStudent} />
+        <PrivateRoute path="/editproject/:id" component={EditProject} />
         <Route path="/addproject/:id" render={props=> {
           return <AddProject {...props} /> 
           }} />

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 import { Card, CardTitle } from "reactstrap";
 import {useParams, Link, useHistory} from "react-router-dom";
-import {Button} from "reactstrap";
+import {Button, CardText} from "reactstrap";
 
 const StudentDetails = props => {
   const [projectState, setProjectState] = useState([]);
@@ -14,6 +14,7 @@ const StudentDetails = props => {
 
   const {id} = useParams();
   const history = useHistory();
+
   useEffect(() => {
     axiosWithAuth()
       .get(`api/students/${id}/projects`)
@@ -21,7 +22,7 @@ const StudentDetails = props => {
         setProjectState(res.data);
       })
       .catch(err => console.log("this is my error", err));
-  }, []);
+  }, [projectState]);
 
   useEffect(()=> {
     axiosWithAuth()
@@ -48,6 +49,18 @@ const StudentDetails = props => {
     })
   }
 
+  const deleteProject = (projectID, projectTitle) => {
+    axiosWithAuth()
+    .delete(`api/projects/${projectID}`)
+    .then(res => {
+      console.log("successfully deleted project", projectTitle)
+      history.push(`/student/${id}`)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   return (
     <div>
       <Link to={`/addproject/${id}`}>
@@ -62,9 +75,14 @@ const StudentDetails = props => {
         <h1>Projects</h1>
         {projectState.map(project => {
           return (
-            <Card key={project.id}>
+            <Card key={project.projectId}>
               
               <CardTitle>Title: {project.title}</CardTitle>
+              <CardText>Due Date: {project.due_date}</CardText>
+              <CardText>Reminder: {project.reminder_time}</CardText>
+              <CardText>Notes: {project.notes}</CardText>
+              <Button onClick={()=>history.push(`/editproject/${project.projectId}`)}>Edit Project</Button>
+              <Button onClick={()=>deleteProject(project.projectId, project.title)}>Delete Project</Button>
             </Card>
           );
         })}
