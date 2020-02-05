@@ -80,7 +80,7 @@ const Login2Form = () => {
       <ErrorMessage error={errors.age} />
 
 
-     <buttons>
+      <buttons>
       <input disabled={isSubmitting} type="submit" />
       </buttons>
     </form>
