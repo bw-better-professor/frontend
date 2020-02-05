@@ -15,6 +15,7 @@ function Navigation() {
       <Link to={whereTo}>Home</Link>
       {/* <Link to="/">How It Works</Link> */}
       {/* <Link to="/">Reviews</Link> */}
+      {/* something */}
       <Link to="/registration">Sign Up</Link>
     </Nav>
   );
