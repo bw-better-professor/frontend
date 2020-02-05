@@ -33,11 +33,11 @@ const StudentList = () => {
               <Card>
                 {/* <CardImg src={student.image_url} alt="card-group" /> */}
                 <CardBody>
-                  <CardTitle>Name: {student.name}</CardTitle>
-                  <CardText>Email: {student.email}</CardText>
-                  <Link to={`/addproject/${student.studentId}`}>
-                    <Button>Add Project</Button>
-                  </Link>
+                    <CardTitle>Name: {student.name}</CardTitle>
+                    <CardText>Email: {student.email}</CardText>
+                    <Link to={`/addproject/${student.studentId}`}>
+                      <Button>Add Project</Button>
+                    </Link>
                 </CardBody>
               </Card>
             </Link>

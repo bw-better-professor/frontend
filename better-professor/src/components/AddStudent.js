@@ -9,7 +9,6 @@ const AddStudent = () => {
         const history = useHistory();
 
         const onSubmit = values => {
-            console.log(values)
             const professorID = parseInt(localStorage.getItem("professorID"));
             axiosWithAuth()
             .post(`/api/students`, {

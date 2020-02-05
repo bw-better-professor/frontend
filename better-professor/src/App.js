@@ -16,6 +16,7 @@ import StudentList from "./components/StudentList";
 import AddStudent from "./components/AddStudent";
 import AddProject from "./components/AddProject";
 import StudentDetails from "./components/StudentDetails";
+import EditStudent from "./components/EditStudent";
 
 function App() {
   return (
@@ -30,12 +31,11 @@ function App() {
           <RegForm />
         </Route>
         <PrivateRoute path="/dashboard" component={StudentList} />
-        {/* <PrivateRoute path="/student/:id" component={StudentDetails} /> */}
         <Route path="/student/:id" render={props=> {
           return <StudentDetails {...props} /> 
           }} />
         <PrivateRoute path="/addstudent" component={AddStudent} />
-        {/* <PrivateRoute path="/addproject/:id" component={AddProject} /> */}
+        <PrivateRoute path="/editstudent/:id" component={EditStudent} />
         <Route path="/addproject/:id" render={props=> {
           return <AddProject {...props} /> 
           }} />
