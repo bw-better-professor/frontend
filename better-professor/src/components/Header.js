@@ -11,7 +11,6 @@ function Header() {
   const delToken = () => {
     localStorage.removeItem("token"); 
     localStorage.removeItem("professorID");
-    window.location.reload();
     history.push("/");
   }
 
