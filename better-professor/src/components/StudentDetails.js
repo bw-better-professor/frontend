@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 import { Card, CardTitle } from "reactstrap";
-import {useParams} from "react-router-dom";
+import {useParams, Link, useHistory} from "react-router-dom";
+import {Button, CardText} from "reactstrap";
 
 const StudentDetails = props => {
   const [projectState, setProjectState] = useState([]);
@@ -12,6 +13,7 @@ const StudentDetails = props => {
   });
 
   const {id} = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     axiosWithAuth()
@@ -20,7 +22,7 @@ const StudentDetails = props => {
         setProjectState(res.data);
       })
       .catch(err => console.log("this is my error", err));
-  }, []);
+  }, [projectState]);
 
   useEffect(()=> {
     axiosWithAuth()
@@ -35,8 +37,37 @@ const StudentDetails = props => {
     .catch(err => console.log(err));
   }, [id, projectState])
 
+  const deleteStudent = () => {
+    axiosWithAuth()
+    .delete(`api/students/${id}`)
+    .then(res => {
+      console.log("successfully deleted student", studentState.name)
+      history.push("/dashboard")
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  const deleteProject = (projectID, projectTitle) => {
+    axiosWithAuth()
+    .delete(`api/projects/${projectID}`)
+    .then(res => {
+      console.log("successfully deleted project", projectTitle)
+      history.push(`/student/${id}`)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   return (
     <div>
+      <Link to={`/addproject/${id}`}>
+        <Button>Add Project</Button>
+      </Link>
+      <Button onClick={()=>history.push(`/editstudent/${id}`)}>Edit Student</Button>
+      <Button onClick={deleteStudent}>Delete Student</Button>
       {/* <img src={studentState.image_url} /> */}
       <h2>Name: {studentState.name}</h2>
       <h3>Email: {studentState.email}</h3>
@@ -44,9 +75,14 @@ const StudentDetails = props => {
         <h1>Projects</h1>
         {projectState.map(project => {
           return (
-            <Card key={project.id}>
+            <Card key={project.projectId}>
               
               <CardTitle>Title: {project.title}</CardTitle>
+              <CardText>Due Date: {project.due_date}</CardText>
+              <CardText>Reminder: {project.reminder_time}</CardText>
+              <CardText>Notes: {project.notes}</CardText>
+              <Button onClick={()=>history.push(`/editproject/${project.projectId}`)}>Edit Project</Button>
+              <Button onClick={()=>deleteProject(project.projectId, project.title)}>Delete Project</Button>
             </Card>
           );
         })}
