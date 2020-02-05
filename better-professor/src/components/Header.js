@@ -24,7 +24,7 @@ function Header() {
       </HLeft>
       <HRight>
         <Link id="header-login">Login</Link>
-        <Link id="header-login" to="/" onClick={delToken}>Logout</Link>
+        <Link id="header-login" to="/login" onClick={delToken}>Logout</Link>
       </HRight>
     </Head>
   );
