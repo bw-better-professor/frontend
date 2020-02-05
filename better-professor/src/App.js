@@ -22,15 +22,18 @@ function App() {
       <Navigation />
 
       <Switch>
-        <Route exact path="/" component={LoginForm} /> 
+        <Route exact path="/" component={LoginForm} />
+        <Route path="/login" component={LoginForm} />
         <Route path="/registration">
           <RegForm />
         </Route>
         <PrivateRoute path="/dashboard" component={StudentList} />
+        {/* <PrivateRoute path="/student/:id" component={StudentDetails} /> */}
         <Route path="/student/:id" render={props=> {
           return <StudentDetails {...props} /> 
           }} />
-        <Route path="/addstudent" component={AddStudent} />
+        <PrivateRoute path="/addstudent" component={AddStudent} />
+        {/* <PrivateRoute path="/addproject/:id" component={AddProject} /> */}
         <Route path="/addproject/:id" render={props=> {
           return <AddProject {...props} /> 
           }} />
