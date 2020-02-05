@@ -90,8 +90,8 @@ function RegForm() {
         <Button onClick={onSubmit} type="submit">Create Account</Button>
       </FormField>
       {/* SIGN UP PAGE IMG */}
-      <div>
-        <img src="imgs/signUpPageGraphic.jpg" alt="Sign up page graphic"/>
+      <div id="signUp">
+        {/* Sign Up Graphic Here */}
       </div>
     </FormPage>
   );

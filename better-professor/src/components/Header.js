@@ -10,7 +10,7 @@ function Header() {
   return(
     <Head>
       <HLeft>
-        <img src="./imgs/BPALogo.png" alt="BPA Logo"/>
+        <div id="headerLogo"> {/* Header Logo Here */} </div>
         <div className="h-left">
           <h1 id="app-name">Better Professor</h1>
           <span id="app-description">Deadline Management App</span>

@@ -9,6 +9,13 @@ label {
   margin-top: 0;
 }
 
+#signUp {
+  background: url('imgs/signUpPageGraphic.jpg') no-repeat center center;
+  height: 400px;
+  width: 400px;
+  background-size: contain;
+}
+
 p {
   margin-top: .5rem;
   font-size: 1.3rem;
@@ -52,4 +59,10 @@ a:hover {
 #header-login:hover {
   color: #0A2738;
   border-bottom: solid 1px #0A2738;
+}
+#headerLogo {
+  background: url('imgs/BPALogo.png') no-repeat center center;
+  background-size: contain;
+  width: 80px;
+  height: 80px;
 }
