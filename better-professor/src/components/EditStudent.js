@@ -24,7 +24,7 @@ const EditStudent = () => {
             })
         .then(res => {
             console.log("edit student successfull");
-            history.push("/dashboard")
+            history.push(`/student/${id}`)
 
         })
         .catch(err => {

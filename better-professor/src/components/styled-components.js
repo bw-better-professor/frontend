@@ -105,4 +105,57 @@ margin-bottom: 10px;
 font-size: 14px;
 `
 
+export const StudentDetailsStudent = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+  border-bottom: solid black 1px;
+`
 
+export const StudentDetailsStudentButtonsSection = styled.div`
+  display: flex;
+`
+
+export const StudentDetailsStudentButtons = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+`
+
+export const StudentDetailsStudentAddProjectButton = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+`
+
+export const StudentDetailsStudentDetails = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
+
+export const EditDeleteButtons = styled.button`
+  margin: 1%;
+`
+
+export const StudentDetailsProjects = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const StudentDetailsProjectsHeader = styled.div`
+  display: flex;
+`
+export const StudentDetailsProjectHeaderSections = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 1%;
+`
+
+export const ProjectsContainer = styled.div`
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+`

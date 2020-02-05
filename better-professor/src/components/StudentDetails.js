@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import {axiosWithAuth} from "../utils/axiosWithAuth";
 import { Card, CardTitle } from "reactstrap";
 import {useParams, Link, useHistory} from "react-router-dom";
 import {Button, CardText} from "reactstrap";
+
+import {axiosWithAuth} from "../utils/axiosWithAuth";
+import {StudentDetailsStudent, StudentDetailsProjects, StudentDetailsStudentButtons, EditDeleteButtons,StudentDetailsStudentDetails,StudentDetailsProjectsHeader, StudentDetailsProjectHeaderSections, StudentDetailsStudentButtonsSection, StudentDetailsStudentAddProjectButton, ProjectsContainer} from "./styled-components";
 
 const StudentDetails = props => {
   const [projectState, setProjectState] = useState([]);
@@ -63,21 +65,41 @@ const StudentDetails = props => {
 
   return (
     <div>
-      <Link to={`/addproject/${id}`}>
-        <Button>Add Project</Button>
-      </Link>
-      <Button onClick={()=>history.push(`/editstudent/${id}`)}>Edit Student</Button>
-      <Button onClick={deleteStudent}>Delete Student</Button>
-      {/* <img src={studentState.image_url} /> */}
-      <h2>Name: {studentState.name}</h2>
-      <h3>Email: {studentState.email}</h3>
-      <div>
-        <h1>Projects</h1>
+      <StudentDetailsStudent>
+        <StudentDetailsStudentButtonsSection>
+          <StudentDetailsStudentAddProjectButton>
+            <EditDeleteButtons onClick={()=>history.push(`/addproject/${id}`)}>Add Project</EditDeleteButtons>
+          </StudentDetailsStudentAddProjectButton>
+          <StudentDetailsStudentButtons>
+            <EditDeleteButtons onClick={()=>history.push(`/editstudent/${id}`)}>Edit Student</EditDeleteButtons>
+            <EditDeleteButtons onClick={deleteStudent}>Delete Student</EditDeleteButtons>
+          </StudentDetailsStudentButtons>
+        </StudentDetailsStudentButtonsSection>
+        
+        
+        <StudentDetailsStudentDetails>
+          {/* <img src={studentState.image_url} /> */}
+          <h2>Name: {studentState.name}</h2>
+          <h3>Email: {studentState.email}</h3>
+        </StudentDetailsStudentDetails>
+        
+      </StudentDetailsStudent>
+      
+      <StudentDetailsProjects>
+        <StudentDetailsProjectsHeader>
+          <StudentDetailsProjectHeaderSections>
+            <h1>Projects</h1>
+          </StudentDetailsProjectHeaderSections>
+        </StudentDetailsProjectsHeader>
+        
+        <ProjectsContainer>
+
+        
         {projectState.map(project => {
           return (
             <Card key={project.projectId}>
               
-              <CardTitle>Title: {project.title}</CardTitle>
+              <CardText>Title: {project.title}</CardText>
               <CardText>Due Date: {project.due_date}</CardText>
               <CardText>Reminder: {project.reminder_time}</CardText>
               <CardText>Notes: {project.notes}</CardText>
@@ -86,7 +108,8 @@ const StudentDetails = props => {
             </Card>
           );
         })}
-      </div>
+        </ProjectsContainer>
+      </StudentDetailsProjects>
     </div>
   );
 };
