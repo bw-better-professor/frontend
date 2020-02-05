@@ -4,15 +4,10 @@ import './styles.css';
 import {Nav} from './styled-components';
 
 function Navigation() {
-  let whereTo = "/";
-
-  if (localStorage.getItem("token") && localStorage.getItem("professorID")){
-    whereTo = "/dashboard"
-  }
 
   return(
     <Nav>
-      <Link to={whereTo}>Home</Link>
+      <Link to="/dashboard">Home</Link>
       {/* <Link to="/">How It Works</Link> */}
       {/* <Link to="/">Reviews</Link> */}
       <Link to="/registration">Sign Up</Link>
