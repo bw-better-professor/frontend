@@ -37,10 +37,11 @@ function RegForm() {
       e.preventDefault();
       setUser('');
       setPassword('');
-      const username = JSON.stringify(email);
-      console.log(email, password)
       Axios
-        .post(`https://betterprofessor25.herokuapp.com/api/auth/register`, {username: username, password: password})
+        .post(`https://betterprofessor25.herokuapp.com/api/auth/register`, {
+          "username": email.toString(), 
+          "password": password.toString()
+        })
         .then(res=> {
             console.log("successfully created a user.", res);
             history.push(`/login`);
