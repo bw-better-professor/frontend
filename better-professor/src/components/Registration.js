@@ -40,7 +40,7 @@ function RegForm() {
       const username = JSON.stringify(email);
       console.log(email, password)
       Axios
-        .post(`https://betterprofessor25.herokuapp.com/api/auth/register`, {username, password})
+        .post(`https://betterprofessor25.herokuapp.com/api/auth/register`, {username: username, password: password})
         .then(res=> {
             console.log("successfully created a user.", res);
             history.push(`/login`);
