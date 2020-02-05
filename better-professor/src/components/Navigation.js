@@ -4,6 +4,11 @@ import './styles.css';
 import {Nav} from './styled-components';
 
 function Navigation() {
+  let whereTo = "/";
+
+  if (localStorage.getItem("token") && localStorage.getItem("professorID")){
+    whereTo = "/dashboard"
+  }
 
   return(
     <Nav>

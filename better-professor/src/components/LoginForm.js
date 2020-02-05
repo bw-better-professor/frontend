@@ -54,7 +54,7 @@ const Login2Form = () => {
       <ErrorMessage error={errors.firstName} />
 
       <label>Password</label>
-      <input name="PassWord" ref={register({ required: true, minLength: 2 })} />
+      <input name="PassWord" type="password" ref={register({ required: true, minLength: 2 })} />
       <ErrorMessage error={errors.firstName} />
 
 

@@ -7,6 +7,12 @@ import {Head,
 
 function Header() {
 
+  const delToken = () => {
+    localStorage.removeItem("token"); 
+    localStorage.removeItem("professorID");
+    window.location.reload();
+  }
+
   return(
     <Head>
       <HLeft>
@@ -18,6 +24,7 @@ function Header() {
       </HLeft>
       <HRight>
         <Link id="header-login">Login</Link>
+        <Link id="header-login" to="/" onClick={()=>delToken()}>Logout</Link>
       </HRight>
     </Head>
   );
