@@ -7,9 +7,9 @@ function Navigation() {
 
   return(
     <Nav>
-      <Link to="/">Home</Link>
-      <Link>How It Works</Link>
-      <Link>Reviews</Link>
+      <Link to={whereTo}>Home</Link>
+      {/* <Link to="/">How It Works</Link> */}
+      {/* <Link to="/">Reviews</Link> */}
       <Link to="/registration">Sign Up</Link>
     </Nav>
   );
