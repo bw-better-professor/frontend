@@ -15,7 +15,6 @@ const initialState = {
 const AddProject = (props) => {
     const history = useHistory();
     const {id} = useParams();
-    console.log(id)
     const [project, setProject] = useState(initialState);
 
     const handleChanges = e => {
