@@ -1,16 +1,18 @@
 import React from 'react';
 import './styles.css';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {Head,
         HLeft,
         HRight} from './styled-components';
 
 function Header() {
+  const history = useHistory();
 
   const delToken = () => {
     localStorage.removeItem("token"); 
     localStorage.removeItem("professorID");
     window.location.reload();
+    history.push("/");
   }
 
   return(
@@ -23,8 +25,8 @@ function Header() {
         </div>
       </HLeft>
       <HRight>
-        <Link id="header-login">Login</Link>
-        <Link id="header-login" to="/login" onClick={delToken}>Logout</Link>
+        <div id="header-login" onClick={()=>history.push("/")}>Login</div>
+        <div id="header-login" onClick={delToken}>Logout</div>
       </HRight>
     </Head>
   );
