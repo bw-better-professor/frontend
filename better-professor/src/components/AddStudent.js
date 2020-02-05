@@ -1,7 +1,7 @@
 import React from "react";
 import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
-
+import {LoginForm} from "./styled-components";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 
 const AddStudent = () => {
@@ -29,10 +29,14 @@ const AddStudent = () => {
     return (
         <>
         {localStorage.getItem("professorID") && localStorage.getItem("token") && (
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <LoginForm>
+            <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+                <h1>Add Student</h1>
+                <label htmlFor="email">Student Email</label>
                 <input
+                    id="email"
                     name="email"
-                    placeholder="email"
+                    placeholder="Student Email Here"
                     ref={register({
                     required: 'Required',
                     pattern: {
@@ -43,18 +47,21 @@ const AddStudent = () => {
                 />
                 {errors.email && errors.email.message}
 
+                <label htmlFor="name">Student Name</label>
                 <input
+                    id="name"
                     name="name"
-                    placeholder="name"
+                    placeholder="Student Name Here"
                     ref={register({
                         required: "Required",
-                        validate: value => value !== "admin" || "Nice try!"
+                        // validate: value => value !== "admin" || "Nice try!"
                     })}
                 />
                 {errors.name && errors.name.message}
 
                 <button type="submit">Add Student</button>
             </form>
+            </LoginForm>
         )}
         
         </>
