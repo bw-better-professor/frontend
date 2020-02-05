@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+import Axios from "axios";
+import {useHistory} from "react-router-dom";
+
 import './styles.css';
 import {useForm} from 'react-hook-form';
 import {FormPage,
@@ -9,8 +12,9 @@ import {FormPage,
         ImgDiv} from './styled-components';
 
 function RegForm() {
-
+    const history = useHistory();
     const [user, setUser] = useState('');
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState('');
 
     const changesUser = e => {
@@ -18,6 +22,10 @@ function RegForm() {
     }
     const changesPass = e => {
       setPassword(e.target.value);
+    }
+
+    const changeEmail = e => {
+      setEmail(e.target.value);
     }
 
     const {
@@ -29,13 +37,24 @@ function RegForm() {
       e.preventDefault();
       setUser('');
       setPassword('');
+      const username = JSON.stringify(email);
+      console.log(email, password)
+      Axios
+        .post(`https://betterprofessor25.herokuapp.com/api/auth/register`, {username, password})
+        .then(res=> {
+            console.log("successfully created a user.", res);
+            history.push(`/login`);
+        })
+        .catch(err=>{
+            console.log(err, "failed to register")
+        })
     };
 
   return(
     <FormPage>
       <FormField onSubmit={handleSubmit}>
         {/* NAME */}
-        <FormInfo>
+        {/* <FormInfo>
           <label htmlFor="name">Full Name</label>
           <Input
             type="text"
@@ -47,7 +66,7 @@ function RegForm() {
             ref={register({ required: "Must enter full name" })}
           />
           {errors.name && <p>{errors.name.message}</p>}
-        </FormInfo>
+        </FormInfo> */}
         {/* EMAIL */}
         <FormInfo>
           <label htmlFor="email">Email</label>
@@ -55,6 +74,8 @@ function RegForm() {
             type="email"
             name="email"
             id="email"
+            onChange={changeEmail}
+            value={email}
             placeholder="Enter Email Address"
             ref={register({ required: "Must enter a valid email address" })}
           />
