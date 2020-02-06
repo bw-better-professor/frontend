@@ -55,7 +55,7 @@ const EditStudent = () => {
       }
 
 return (
-    <>
+    <div className="pageContainer">
     {localStorage.getItem("professorID") && localStorage.getItem("token") && (
         <LoginForm>
             <span className="goBack" onClick={()=>history.push(`/student/${id}`)}>Back to Student Details</span>
@@ -96,7 +96,7 @@ return (
         </LoginForm>
     )}
     
-    </>
+    </div>
 )
 }
 

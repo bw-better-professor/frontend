@@ -43,11 +43,14 @@ const StudentList = () => {
   };
 
   return (
-    <div>
+    <div className="pageContainer">
       <div className="addStudentPage">
+        <h1>Welcome back, Professor.</h1>
+        
         <Link to="/addstudent" className="studentLink2">
           <Button className="addStudentBtn"> Add Student </Button>
         </Link>
+        {(studentState.length===0) && (<h3>You have no students. Please add a student to manage.</h3>)}
         <CardList>
           {studentState.map(student => {
             return (

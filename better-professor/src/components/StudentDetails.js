@@ -52,26 +52,14 @@ const StudentDetails = props => {
     })
   }
 
-  const deleteProject = (projectID, projectTitle) => {
-    axiosWithAuth()
-    .delete(`api/projects/${projectID}`)
-    .then(res => {
-      console.log("successfully deleted project", projectTitle)
-      history.push(`/student/${id}`)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
-
   return (
     <div className="pageContainer">
       <LoginForm>
         <span className="goBack" onClick={()=>history.push(`/dashboard`)}>Back to Student List</span>
 
           <div className="editDelContainer">
-            <EditDeleteButtons onClick={()=>history.push(`/editstudent/${id}`)}>Edit Student</EditDeleteButtons>
-            <EditDeleteButtons onClick={deleteStudent}>Delete Student</EditDeleteButtons> 
+            <button className="editDeleteButtons" onClick={()=>history.push(`/editstudent/${id}`)}>Edit Student</button>
+            <button className="editDeleteButtons2" onClick={deleteStudent}>Delete Student</button> 
           </div>
       </LoginForm>
 
@@ -89,16 +77,17 @@ const StudentDetails = props => {
           <span className="projectsAddButton">
             <button type="submit" onClick={()=>history.push(`/addproject/${id}`)}>Add Project</button>
           </span>
+          {(projectState.length===0) && (<h3>{studentState.name} currently has no projects. Please add a project.</h3>)}
         </div>
         <div className="projectsContainer">
+          
           {projectState.map(project => {
             return (
               <div onClick={()=>history.push(`/student/${id}/${project.projectId}`)} className="project" key={project.projectId}>
                 <h3>{project.title}</h3>
                 <h4>Due Date: {project.due_date}</h4>
                 <h4>Remind Me: {project.reminder_time}</h4>
-                {/* <Button onClick={()=>history.push(`/editproject/${project.projectId}`)}>Edit Project</Button>
-                <Button onClick={()=>deleteProject(project.projectId, project.title)}>Delete Project</Button> */}
+                
               </div>
             );
           })}

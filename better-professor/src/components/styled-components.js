@@ -109,6 +109,8 @@ font-size: 14px;
 
 export const EditDeleteButtons = styled.button`
   margin: 1%;
+  background-Color: #66889c;
+  color: white;
 `
 
 export const CardList = styled.div`
