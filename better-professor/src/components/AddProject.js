@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useHistory, useParams} from "react-router-dom";
 import {LoginForm} from "./styled-components";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
-
+import "./styles.css";
 
 const initialState = {
     student_id: "",
@@ -50,7 +50,9 @@ const AddProject = (props) => {
         {localStorage.getItem("professorID") && localStorage.getItem("token") && (
             <LoginForm>
                 <span className="goBack" onClick={()=>history.push(`/student/${id}`)}>Back to Student Details</span>
-                <form className="loginForm">
+                <div className="pageContainer2">
+                    <div className="sectionContainer1">
+                <form className="loginForm2">
                     <h1>Add Project</h1>
                     <label htmlFor="title">Title</label>
                     <input id="title" type="text" onChange={handleChanges} name="title" value={project.title} placeholder="Enter Title Here"/>
@@ -62,6 +64,13 @@ const AddProject = (props) => {
                     <input id="notes" type="textarea" onChange={handleChanges} name="notes" value={project.notes} placeholder="Enter Notes Here"/>
                     <button type="submit" onClick={handleSubmit}>Add Project</button>
                 </form>
+                </div>
+                <div className="sectionContainer2">
+            <div id="signUp">
+        {/* Sign Up Graphic Here */}
+      </div>
+            </div>
+                </div>
             </LoginForm>
         )}
         

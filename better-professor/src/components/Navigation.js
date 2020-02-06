@@ -7,13 +7,13 @@ function Navigation() {
 
   return(
     <Nav>
-      <span className="navLinksContainer">
-          <Link to="/dashboard"><div id="nav-link">Home</div></Link>
-        
-        {/* <Link to="/">How It Works</Link> */}
-        {/* <Link to="/">Reviews</Link> */}
+      <ul className="navLinksContainer">
+        <a href="https://bw-better-professor.github.io/UI/index.html"><div id="nav-link">Home</div></a>
+        <a href="https://bw-better-professor.github.io/UI/how_it_works.html"><div id="nav-link">How It Works</div></a>
+        <a href="https://bw-better-professor.github.io/UI/reviews.html"><div id="nav-link">Reviews</div></a>
+        <a href="https://bw-better-professor.github.io/UI/meet_the_team.html"><div id="nav-link">Meet the Team</div></a>
         <Link to="/registration"><div id="nav-link">Sign Up</div></Link>
-      </span>
+      </ul>
     </Nav>
   );
 }

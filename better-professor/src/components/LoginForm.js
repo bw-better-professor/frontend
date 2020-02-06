@@ -5,6 +5,7 @@ import {useHistory} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
 import {LoginForm} from './styled-components';
+import "./styles.css";
 
 
 const Login2Form = () => {
@@ -46,46 +47,56 @@ const Login2Form = () => {
     };
 
   return (
-      <LoginForm>
-    <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
-      <h1>Login</h1>
-      <label>Email</label>
-      <input name="Email" ref={register({ required: true })} />
-      <ErrorMessage error={errors.firstName} />
+  <LoginForm>
+    <div className="pageContainer2">
+      <div className="sectionContainer1">
+        <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+          <h1>Log In</h1>
+          <label htmlFor="email">Email</label>
+          <input id="email" placeholder="Enter Email Here" name="Email" ref={register({ required: true })} />
+          <ErrorMessage error={errors.firstName} />
 
-      <label>Password</label>
-      <input name="PassWord" type="password" ref={register({ required: true, minLength: 2 })} />
-      <ErrorMessage error={errors.firstName} />
-
-
-      <ErrorMessage error={errors.gender} />
-
+          <label htmlFor="password">Password</label>
+          <input id="password" placeholder="Enter Password Here" name="PassWord" type="password" ref={register({ required: true, minLength: 2 })} />
+          <ErrorMessage error={errors.firstName} />
 
 
-        {e => validateUserName(e.target.value)}
-        {register({ required: true, validate: validateUserName })}
-
-      <ErrorMessage error={errors.username} />
+          <ErrorMessage error={errors.gender} />
 
 
 
-        {register({ required: true, pattern: /^\S+@\S+$/i })}
+            {e => validateUserName(e.target.value)}
+            {register({ required: true, validate: validateUserName })}
 
-      <ErrorMessage error={errors.email} />
-
-
-
-        {register({ required: true, min: 18 })}
-
-      <ErrorMessage error={errors.age} />
+          <ErrorMessage error={errors.username} />
 
 
-     <buttons>
-      <input disabled={isSubmitting} type="submit" />
-      </buttons>
-    </form>
+
+            {register({ required: true, pattern: /^\S+@\S+$/i })}
+
+          <ErrorMessage error={errors.email} />
+
+
+
+            {register({ required: true, min: 18 })}
+
+          <ErrorMessage error={errors.age} />
+
+
+        <buttons>
+          <input disabled={isSubmitting} value={"Log In"} type="submit" />
+          </buttons>
+
+        </form>
+    </div>
+    <div className="sectionContainer2">
+      <div id="signUp">
+        {/* Sign Up Graphic Here */}
+      </div>
+    </div>
+    </div>
     </LoginForm>
-
+    
   );
 }
 

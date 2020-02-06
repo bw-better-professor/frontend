@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardTitle } from "reactstrap";
-import {useParams, Link, useHistory} from "react-router-dom";
-import {Button, CardText} from "reactstrap";
+import {useParams, useHistory} from "react-router-dom";
 
 import {axiosWithAuth} from "../utils/axiosWithAuth";
-import {EditDeleteButtons, LoginForm} from "./styled-components";
+import {LoginForm} from "./styled-components";
 import "./styles.css";
 
 const StudentDetails = props => {
@@ -38,7 +36,7 @@ const StudentDetails = props => {
       })
     })
     .catch(err => console.log(err));
-  }, [id, projectState])
+  }, [id])
 
   const deleteStudent = () => {
     axiosWithAuth()
@@ -77,7 +75,7 @@ const StudentDetails = props => {
           <span className="projectsAddButton">
             <button type="submit" onClick={()=>history.push(`/addproject/${id}`)}>Add Project</button>
           </span>
-          {(projectState.length===0) && (<h3>{studentState.name} currently has no projects. Please add a project.</h3>)}
+          {(projectState.length===0) && (<h3>{studentState.name} currently has no projects. Please add a project to manage.</h3>)}
         </div>
         <div className="projectsContainer">
           

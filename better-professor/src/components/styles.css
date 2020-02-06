@@ -10,7 +10,7 @@ html {
   font-size: 62.5%;
   color: #0A2738;
   
-  background-color: #fafafa;
+  background-color: white;
 }
 
 input, label, button {
@@ -80,6 +80,7 @@ a:hover {
 #header-login:hover {
   color: #0A2738;
   border-bottom: solid 1px #0A2738;
+  cursor: pointer;
 }
 
 #nav-link {
@@ -163,9 +164,9 @@ a {
 }
 
 .navLinksContainer {
-  display: flex;
-  width: 91%;
-  justify-content: flex-end;
+    width:50%;
+		display:flex;
+		justify-content:space-evenly;
 }
 
 .goBack {
@@ -183,8 +184,9 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  background-color: #fafafa;
+  background-color: white;
 }
 
 .editDelContainer {
@@ -233,16 +235,27 @@ a {
 
 .projectsContainer{
   display: flex;
+  justify-content: center;
   width: 80%;
+  flex-wrap: wrap;
+  margin: 2% 0;
+}
+
+.projectsContainer2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   flex-wrap: wrap;
   margin: 2% 0;
 }
 
 .project{
   width: 30%;
-  max-width: 30%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 1%;
   margin: 1%;
   background-color: #fafafa;
@@ -311,6 +324,7 @@ a {
 }
 
 .editDeleteButtons:hover {
+  cursor: pointer;
   color: white;
   background-color: #66889c;
 }
@@ -323,6 +337,35 @@ a {
 }
 
 .editDeleteButtons2:hover{
+  cursor: pointer;
   background-color: #b90e0e;
   color: white;
+}
+
+.sectionContainer1{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.sectionContainer2{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.pageContainer2 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  padding: 2%;
+}
+
+.loginForm{
+  width: 30%;
+}
+
+.loginForm2{
+  width: 60%;
 }
