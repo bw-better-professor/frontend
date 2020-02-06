@@ -164,9 +164,9 @@ a {
 }
 
 .navLinksContainer {
-  display: flex;
-  width: 91%;
-  justify-content: flex-end;
+    width:50%;
+		display:flex;
+		justify-content:space-evenly;
 }
 
 .goBack {
