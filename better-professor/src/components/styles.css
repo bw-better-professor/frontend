@@ -10,7 +10,7 @@ html {
   font-size: 62.5%;
   color: #0A2738;
   
-  background-color: #fafafa;
+  background-color: white;
 }
 
 input, label, button {
@@ -184,7 +184,7 @@ a {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #fafafa;
+  background-color: white;
 }
 
 .editDelContainer {

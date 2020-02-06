@@ -46,7 +46,7 @@ function RegForm() {
           "password": password.toString()
         })
         .then(res=> {
-            console.log("successfully created a user.", res);
+            console.log("successfully created a user.");
             history.push(`/login`);
         })
         .catch(err=>{

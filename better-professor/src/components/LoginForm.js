@@ -49,12 +49,12 @@ const Login2Form = () => {
       <LoginForm>
     <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
       <h1>Login</h1>
-      <label>Email</label>
-      <input name="Email" ref={register({ required: true })} />
+      <label htmlFor="email">Email</label>
+      <input id="email" placeholder="Enter Email Here" name="Email" ref={register({ required: true })} />
       <ErrorMessage error={errors.firstName} />
 
-      <label>Password</label>
-      <input name="PassWord" type="password" ref={register({ required: true, minLength: 2 })} />
+      <label htmlFor="password">Password</label>
+      <input id="password" placeholder="Enter Password Here" name="PassWord" type="password" ref={register({ required: true, minLength: 2 })} />
       <ErrorMessage error={errors.firstName} />
 
 
