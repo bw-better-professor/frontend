@@ -44,7 +44,7 @@ function App() {
         <Route path="/addproject/:id" render={props=> {
           return <AddProject {...props} /> 
           }} />
-        <Route component={LoginForm} />
+        {/* <Route component={LoginForm} /> */}
       </Switch>
     </>
   );
