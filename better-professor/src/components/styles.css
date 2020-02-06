@@ -369,3 +369,11 @@ a {
 .loginForm2{
   width: 60%;
 }
+
+.underline{
+  text-decoration: underline;
+}
+
+.underline:hover{
+   cursor: pointer;
+}
