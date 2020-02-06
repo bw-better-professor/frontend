@@ -9,6 +9,8 @@ import {
   CardTitle,
   Button
 } from "reactstrap";
+import {CardList} from './styled-components';
+import './styles.css';
 
 const StudentList = () => {
   const [studentState, setStudentState] = useState([]);
@@ -20,30 +22,48 @@ const StudentList = () => {
       .get(`api/users/${id}/students`)
       .then(res => {
         setStudentState(res.data);
+        console.log(res.data);
       })
       .catch(err => console.log(err));
   }, []);
 
+  // Styles
+  const cardStyle = {
+    borderRadius: '5px',
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '250px',
+    marginBottom: '15px'
+  };
+  const cardBodyStyle = {
+    padding: '15px',
+    textAlign: 'center'
+  };
+
   return (
     <div>
-      <div>
-        <Link to="/addstudent">
-          <Button> Add Student </Button>
+      <div className="addStudentPage">
+        <Link to="/addstudent" className="studentLink2">
+          <Button className="addStudentBtn"> Add Student </Button>
         </Link>
-        {studentState.map(student => {
-          return (
+        <CardList>
+          {studentState.map(student => {
+            return (
 
-            <Link to={`/student/${student.studentId}`} key={student.studentId}>
-              <Card>
-                {/* <CardImg src={student.image_url} alt="card-group" /> */}
-                <CardBody>
+              <Link to={`/student/${student.studentId}`} key={student.studentId} className="studentLink">
+                <Card style={cardStyle} className="hoverEffect">
+                  {/* <CardImg style={{paddingTop: "15px"}} src={student.image_url} alt="card-group" /> */}
+                  <CardBody style={cardBodyStyle}>
                     <CardTitle>Name: {student.name}</CardTitle>
-                    <CardText>Email: {student.email}</CardText>
-                </CardBody>
-              </Card>
-            </Link>
-          );
-        })}
+                    <CardText className="cardText">Email: {student.email}</CardText>
+                  </CardBody>
+                </Card>
+              </Link>
+            );
+          })}
+        </CardList>
       </div>
     </div>
   );

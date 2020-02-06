@@ -164,3 +164,10 @@ export const ProjectsContainer = styled.div`
   width: 90%;
   flex-wrap: wrap;
 `
+
+export const CardList = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;

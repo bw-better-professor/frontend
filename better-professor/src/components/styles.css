@@ -108,12 +108,52 @@ h3 {
   font-size: 2.8rem;
 }
 
+.hoverEffect{
+  background-color: #0A2738;
+}
+.hoverEffect:hover {
+  background-color: dodgerblue;
+}
+.studentLink:hover {
+  border-bottom-style: none;
+}
+.studentLink2 {
+  display: flex;
+  justify-content: center;
+  margin: 5rem 0 5rem;
+  width: 200px;
+}
+.studentLink2:hover {
+  font-size: 1.8rem;
+}
+.addStudentBtn {
+  cursor: pointer;
+  width: 100%;
+  margin: 0 0 .5rem;
+  transition: .25s;
+}
+.addStudentBtn:hover {
+  font-size: 1.2rem;
+  width: 90%;
+}
+.addStudentPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cardText {
+  color: black;
+}
+.cardText::before {
+  content: '';
+}
+
 a {
 	text-decoration:none;
 	font-size:1.5rem;
 	color:white;
 }
-
 
 .navLinksContainer {
   display: flex;
