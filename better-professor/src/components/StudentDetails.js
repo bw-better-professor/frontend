@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardTitle } from "reactstrap";
-import {useParams, Link, useHistory} from "react-router-dom";
-import {Button, CardText} from "reactstrap";
+import {useParams, useHistory} from "react-router-dom";
 
 import {axiosWithAuth} from "../utils/axiosWithAuth";
-import {EditDeleteButtons, LoginForm} from "./styled-components";
+import {LoginForm} from "./styled-components";
 import "./styles.css";
 
 const StudentDetails = props => {
