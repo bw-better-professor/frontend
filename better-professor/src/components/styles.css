@@ -8,6 +8,9 @@
 
 html {
   font-size: 62.5%;
+  color: #0A2738;
+  
+  background-color: #fafafa;
 }
 
 input, label, button {
@@ -108,6 +111,10 @@ h3 {
   font-size: 2.8rem;
 }
 
+h4 {
+  font-size: 1.6rem;
+}
+
 .hoverEffect{
   background-color: #0A2738;
 }
@@ -170,4 +177,152 @@ a {
 .goBack:hover{
   color:#0A2738;
   cursor: pointer;
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #fafafa;
+}
+
+.editDelContainer {
+  margin: -30px 0;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.studentDetailsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.studentDetails {
+  margin-top: -1%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projectsSection {
+  padding: 0 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2% 0;
+  
+}
+
+.projectsHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.projectsAddButton{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.projectsContainer{
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  margin: 2% 0;
+}
+
+.project{
+  width: 30%;
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  margin: 1%;
+  background-color: #fafafa;
+  border: solid rgb(196, 196, 196) 1px;
+  box-shadow: 2px 2px #bebebe;
+  border-radius: 5px;
+}
+
+.project:hover{
+  cursor: pointer;
+  box-shadow: 6px 6px #bebebe;
+  transform: translateY(-2px) translateX(-2px);
+}
+
+.project:active{
+  box-shadow: -2px -2px;
+  transform: translateY(4px) translateX(4px);
+}
+
+.projectDetailLine{
+  width: 100%;
+  margin: 1%;
+  display: flex;
+  justify-content: center;
+}
+
+.projectDetailTitle{
+  font-size: 3.6rem;
+  margin-left: 1%;
+  font-weight: bold;
+}
+
+.projectTitleLabel {
+  color: #66889c;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.projectLabel {
+  color: #66889c;
+  font-size: 2.5rem;
+}
+
+.projectNotes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notesSection{
+  border: solid #66889c 1px;
+  margin-top: 1%;
+  padding: 1%;
+  text-align: center;
+  background-color: white;
+  width: 80%;
+  font-size: 1.6rem;
+}
+
+.editDeleteButtons{
+  color: #66889c;
+  background-color: white;
+  margin: 1%;
+  box-shadow: 2px 2px #bebebe;
+}
+
+.editDeleteButtons:hover {
+  color: white;
+  background-color: #66889c;
+}
+
+.editDeleteButtons2{
+  color: #B90e0e;
+  background-color: white;
+  margin: 1%;
+  box-shadow: 2px 2px #bebebe;
+}
+
+.editDeleteButtons2:hover{
+  background-color: #b90e0e;
+  color: white;
 }

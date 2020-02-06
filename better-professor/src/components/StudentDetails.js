@@ -4,7 +4,8 @@ import {useParams, Link, useHistory} from "react-router-dom";
 import {Button, CardText} from "reactstrap";
 
 import {axiosWithAuth} from "../utils/axiosWithAuth";
-import {StudentDetailsStudent, StudentDetailsProjects, StudentDetailsStudentButtons, EditDeleteButtons,StudentDetailsStudentDetails,StudentDetailsProjectsHeader, StudentDetailsProjectHeaderSections, StudentDetailsStudentButtonsSection, StudentDetailsStudentAddProjectButton, ProjectsContainer} from "./styled-components";
+import {EditDeleteButtons, LoginForm} from "./styled-components";
+import "./styles.css";
 
 const StudentDetails = props => {
   const [projectState, setProjectState] = useState([]);
@@ -51,65 +52,48 @@ const StudentDetails = props => {
     })
   }
 
-  const deleteProject = (projectID, projectTitle) => {
-    axiosWithAuth()
-    .delete(`api/projects/${projectID}`)
-    .then(res => {
-      console.log("successfully deleted project", projectTitle)
-      history.push(`/student/${id}`)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
-
   return (
-    <div>
-      <StudentDetailsStudent>
-        <StudentDetailsStudentButtonsSection>
-          <StudentDetailsStudentAddProjectButton>
-            <EditDeleteButtons onClick={()=>history.push(`/addproject/${id}`)}>Add Project</EditDeleteButtons>
-          </StudentDetailsStudentAddProjectButton>
-          <StudentDetailsStudentButtons>
-            <EditDeleteButtons onClick={()=>history.push(`/editstudent/${id}`)}>Edit Student</EditDeleteButtons>
-            <EditDeleteButtons onClick={deleteStudent}>Delete Student</EditDeleteButtons>
-          </StudentDetailsStudentButtons>
-        </StudentDetailsStudentButtonsSection>
-        
-        
-        <StudentDetailsStudentDetails>
-          {/* <img src={studentState.image_url} /> */}
-          <h2>Name: {studentState.name}</h2>
-          <h3>Email: {studentState.email}</h3>
-        </StudentDetailsStudentDetails>
-        
-      </StudentDetailsStudent>
-      
-      <StudentDetailsProjects>
-        <StudentDetailsProjectsHeader>
-          <StudentDetailsProjectHeaderSections>
-            <h1>Projects</h1>
-          </StudentDetailsProjectHeaderSections>
-        </StudentDetailsProjectsHeader>
-        
-        <ProjectsContainer>
+    <div className="pageContainer">
+      <LoginForm>
+        <span className="goBack" onClick={()=>history.push(`/dashboard`)}>Back to Student List</span>
 
+          <div className="editDelContainer">
+            <button className="editDeleteButtons" onClick={()=>history.push(`/editstudent/${id}`)}>Edit Student</button>
+            <button className="editDeleteButtons2" onClick={deleteStudent}>Delete Student</button> 
+          </div>
+      </LoginForm>
+
+      
+      <div className="studentDetailsContainer"> 
+        <div className="studentDetails">
+          {/* <img src={studentState.image_url} /> */}
+          <h2>{studentState.name}</h2>
+          <h3>{studentState.email}</h3>
+        </div>
+      </div>
+
+      <div className="projectsSection">
+        <div className="projectsHeader">
+          <span className="projectsAddButton">
+            <button type="submit" onClick={()=>history.push(`/addproject/${id}`)}>Add Project</button>
+          </span>
+          {(projectState.length===0) && (<h3>{studentState.name} currently has no projects. Please add a project.</h3>)}
+        </div>
+        <div className="projectsContainer">
+          
+          {projectState.map(project => {
+            return (
+              <div onClick={()=>history.push(`/student/${id}/${project.projectId}`)} className="project" key={project.projectId}>
+                <h3>{project.title}</h3>
+                <h4>Due Date: {project.due_date}</h4>
+                <h4>Remind Me: {project.reminder_time}</h4>
+                
+              </div>
+            );
+          })}
+        </div>
         
-        {projectState.map(project => {
-          return (
-            <Card key={project.projectId}>
-              
-              <CardText>Title: {project.title}</CardText>
-              <CardText>Due Date: {project.due_date}</CardText>
-              <CardText>Reminder: {project.reminder_time}</CardText>
-              <CardText>Notes: {project.notes}</CardText>
-              <Button onClick={()=>history.push(`/editproject/${project.projectId}`)}>Edit Project</Button>
-              <Button onClick={()=>deleteProject(project.projectId, project.title)}>Delete Project</Button>
-            </Card>
-          );
-        })}
-        </ProjectsContainer>
-      </StudentDetailsProjects>
+      </div>
     </div>
   );
 };

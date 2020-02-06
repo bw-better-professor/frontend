@@ -53,7 +53,7 @@ const EditProject = (props) => {
         })
         .then(res => {
             console.log("edit project successfull")
-            history.push(`/student/${project.student_id}`)
+            history.push(`/student/${project.student_id}/${id}`)
         })
         .catch(err => {
             console.log(err)
@@ -61,10 +61,11 @@ const EditProject = (props) => {
     }
 
     return (
-        <>
+        <div className="pageContainer">
         {localStorage.getItem("professorID") && localStorage.getItem("token") && (
             <LoginForm>
-                <div className="goBack" onClick={()=>history.push(`/student/${id}`)}>Back to Student Details</div>
+                <span className="goBack" onClick={()=>history.push(`/student/${project.student_id}/${id}`)}>Back to Project Details</span>
+                
                 <form className="loginForm">
                     <h1>Edit Project</h1>
                     <label htmlFor="title">Title</label>
@@ -80,7 +81,7 @@ const EditProject = (props) => {
             </LoginForm>
         )}
         
-        </>
+        </div>
     )
 }
 
