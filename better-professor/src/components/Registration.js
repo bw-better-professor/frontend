@@ -14,14 +14,19 @@ import {FormPage,
 function RegForm() {
     const history = useHistory();
     const [user, setUser] = useState('');
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [notMatching, setNotMatching] = useState('');
 
     const changesUser = e => {
       setUser(e.target.value);
     }
     const changesPass = e => {
       setPassword(e.target.value);
+    }
+    const changesConfirm = e => {
+      setConfirmPassword(e.target.value);
     }
 
     const changeEmail = e => {
@@ -33,13 +38,11 @@ function RegForm() {
       handleSubmit,
       errors} = useForm();
 
-    const onSubmit = e => {
-      e.preventDefault();
-      setUser('');
-      setPassword('');
+    const onSubmit = () => {
+      (password === confirmPassword) ? ( // <-- IF THIS, THEN -->
       Axios
         .post(`https://betterprofessor25.herokuapp.com/api/auth/register`, {
-          "username": email.toString(), 
+          "username": email.toString(),
           "password": password.toString()
         })
         .then(res=> {
@@ -48,12 +51,14 @@ function RegForm() {
         })
         .catch(err=>{
             console.log(err, "failed to register")
-        })
+        }) ) : // IF NOT, THEN -->
+
+        ( setNotMatching('Passwords do not match!') )
     };
 
   return(
     <FormPage>
-      <FormField onSubmit={handleSubmit}>
+      <FormField onSubmit={handleSubmit(onSubmit)}>
         {/* NAME */}
         {/* <FormInfo>
           <label htmlFor="name">Full Name</label>
@@ -92,7 +97,7 @@ function RegForm() {
             placeholder="Create a password"
             onChange={changesPass}
             value={password}
-            ref={register({ required: "Must enter a password", minLength: 7 })}
+            ref={register({ required: "Must enter a password", minLength: {value: 7, message: "Password must be at least 7 characters long."} })}
           />
           {errors.password && <p>{errors.password.message}</p>}
         </FormInfo>
@@ -104,12 +109,14 @@ function RegForm() {
             name="confirmPassword"
             id="confirmPassword"
             placeholder="Re-enter password"
-            ref={register({ required: "Must confirm password", minLength: 7 })}
+            onChange={changesConfirm}
+            value={confirmPassword}
+            ref={register({ required: "Must confirm password", minLength: {value: 7, message: "Not enough characters."} })}
           />
           {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-          <p>Password must be at least 7 characters long and contain one uppercase letter, one lowercase letter and one special character.</p>
+          <p>Password must be at least 7 characters long. {notMatching}</p>
         </FormInfo>
-        <Button onClick={onSubmit} type="submit">Create Account</Button>
+        <Button type="submit">Create Account</Button>
       </FormField>
       {/* SIGN UP PAGE IMG */}
       <div id="signUp">

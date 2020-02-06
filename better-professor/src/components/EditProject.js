@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useHistory, useParams} from "react-router-dom";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
+import {LoginForm} from "./styled-components";
 
 
 const initialState = {
@@ -52,7 +53,7 @@ const EditProject = (props) => {
         })
         .then(res => {
             console.log("edit project successfull")
-            history.push(`/student/${project.student_id}`)
+            history.push(`/student/${project.student_id}/${id}`)
         })
         .catch(err => {
             console.log(err)
@@ -60,18 +61,27 @@ const EditProject = (props) => {
     }
 
     return (
-        <>
+        <div className="pageContainer">
         {localStorage.getItem("professorID") && localStorage.getItem("token") && (
-            <div>
-                <input type="text" onChange={handleChanges} name="title" value={project.title} placeholder="title"/>
-                <input type="text" onChange={handleChanges} name="due_date" value={project.due_date} placeholder="due date"/>
-                <input type="text" onChange={handleChanges} name="reminder_time" value={project.reminder_time} placeholder="reminder time"/>
-                <input type="text" onChange={handleChanges} name="notes" value={project.notes} placeholder="notes"/>
-                <button onClick={handleSubmit}>Save Project</button>
-            </div>
+            <LoginForm>
+                <span className="goBack" onClick={()=>history.push(`/student/${project.student_id}/${id}`)}>Back to Project Details</span>
+                
+                <form className="loginForm">
+                    <h1>Edit Project</h1>
+                    <label htmlFor="title">Title</label>
+                    <input id="title" type="text" onChange={handleChanges} name="title" value={project.title} placeholder="Enter Title Here"/>
+                    <label htmlFor="due_date">Due Date</label>
+                    <input id="due_date" type="date" onChange={handleChanges} name="due_date" value={project.due_date} placeholder="Set Due Date"/>
+                    <label htmlFor="reminder_time">Reminder Time</label>
+                    <input id="reminder_time" type="time" onChange={handleChanges} name="reminder_time" value={project.reminder_time} placeholder="Set Reminder Time"/>
+                    <label htmlFor="notes">Notes</label>
+                    <input id="notes" type="textarea" onChange={handleChanges} name="notes" value={project.notes} placeholder="Enter Notes Here"/>
+                    <button type="submit" onClick={handleSubmit}>Save Edit</button>
+                </form>
+            </LoginForm>
         )}
         
-        </>
+        </div>
     )
 }
 

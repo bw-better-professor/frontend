@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useHistory, useParams} from "react-router-dom";
-
+import {LoginForm} from "./styled-components";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 
 
@@ -48,13 +48,21 @@ const AddProject = (props) => {
     return (
         <>
         {localStorage.getItem("professorID") && localStorage.getItem("token") && (
-            <div>
-                <input type="text" onChange={handleChanges} name="title" value={project.title} placeholder="title"/>
-                <input type="text" onChange={handleChanges} name="due_date" value={project.due_date} placeholder="due date"/>
-                <input type="text" onChange={handleChanges} name="reminder_time" value={project.reminder_time} placeholder="reminder time"/>
-                <input type="text" onChange={handleChanges} name="notes" value={project.notes} placeholder="notes"/>
-                <button onClick={handleSubmit}>Add Project</button>
-            </div>
+            <LoginForm>
+                <span className="goBack" onClick={()=>history.push(`/student/${id}`)}>Back to Student Details</span>
+                <form className="loginForm">
+                    <h1>Add Project</h1>
+                    <label htmlFor="title">Title</label>
+                    <input id="title" type="text" onChange={handleChanges} name="title" value={project.title} placeholder="Enter Title Here"/>
+                    <label htmlFor="due_date">Due Date</label>
+                    <input id="due_date" type="date" onChange={handleChanges} name="due_date" value={project.due_date} placeholder="Set Due Date"/>
+                    <label htmlFor="reminder_time">Reminder Time</label>
+                    <input id="reminder_time" type="time" onChange={handleChanges} name="reminder_time" value={project.reminder_time} placeholder="Set Reminder Time"/>
+                    <label htmlFor="notes">Notes</label>
+                    <input id="notes" type="textarea" onChange={handleChanges} name="notes" value={project.notes} placeholder="Enter Notes Here"/>
+                    <button type="submit" onClick={handleSubmit}>Add Project</button>
+                </form>
+            </LoginForm>
         )}
         
         </>
