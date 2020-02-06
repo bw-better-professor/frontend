@@ -66,22 +66,28 @@ label {
   font-weight: 200;
 }
 
+button[type="submit"]:focus,
+input[type="submit"]:focus {
+  border-color: dodgerblue;
+}
+
 button[type="submit"],
 input[type="submit"] {
   background: dodgerblue;
   color: white;
-  text-transform: uppercase;
-  border: none;
-  margin-top: 40px;
-  padding: 20px;
-  font-size: 16px;
-  font-weight: 100;
-  letter-spacing: 10px;
+  border-style: none;
+  margin-top: 5%;
+  font-size: 2.4rem;
+  font-weight: bold;
+  transition: .25s;
+  padding: 1rem;
+  border-radius: 10px;
+  border: solid 1px #ddd;
 }
 
 button[type="submit"]:hover,
 input[type="submit"]:hover {
-  background: #2c2729;
+  background: #0A2738;
 }
 
 button[type="submit"]:active,
