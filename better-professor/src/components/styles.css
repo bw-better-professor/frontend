@@ -341,3 +341,31 @@ a {
   background-color: #b90e0e;
   color: white;
 }
+
+.sectionContainer1{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.sectionContainer2{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.pageContainer2 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  padding: 2%;
+}
+
+.loginForm{
+  width: 30%;
+}
+
+.loginForm2{
+  width: 60%;
+}

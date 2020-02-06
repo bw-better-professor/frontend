@@ -72,6 +72,7 @@ function RegForm() {
   return(
     <FormPage>
       <FormField onSubmit={handleSubmit(onSubmit)}>
+        <h1>Create an Account</h1>
         {/* NAME */}
         {/* <FormInfo>
           <label htmlFor="name">Full Name</label>
