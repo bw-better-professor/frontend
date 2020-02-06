@@ -7,10 +7,13 @@ function Navigation() {
 
   return(
     <Nav>
-      <Link to="/dashboard">Home</Link>
-      {/* <Link to="/">How It Works</Link> */}
-      {/* <Link to="/">Reviews</Link> */}
-      <Link to="/registration">Sign Up</Link>
+      <span className="navLinksContainer">
+          <Link to="/dashboard"><div id="nav-link">Home</div></Link>
+        
+        {/* <Link to="/">How It Works</Link> */}
+        {/* <Link to="/">Reviews</Link> */}
+        <Link to="/registration"><div id="nav-link">Sign Up</div></Link>
+      </span>
     </Nav>
   );
 }

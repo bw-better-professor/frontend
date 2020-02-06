@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useForm} from "react-hook-form";
 import {useParams, useHistory} from "react-router-dom";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
+import {LoginForm} from "./styled-components";
 
 const EditStudent = () => {
     const { handleSubmit, register, errors } = useForm();
@@ -56,36 +57,43 @@ const EditStudent = () => {
 return (
     <>
     {localStorage.getItem("professorID") && localStorage.getItem("token") && (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-                name="email"
-                placeholder="email"
-                onChange={handleChanges}
-                value={studentState.email}
-                ref={register({
-                required: 'Required',
-                pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                    message: "invalid email address"
-                }
-                })}
-            />
-            {errors.email && errors.email.message}
+        <LoginForm>
+            <div className="goBack" onClick={()=>history.push(`/student/${id}`)}>Back to Student Details</div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <h1>Edit Student</h1>
+                <label htmlFor="email">Student Email</label>
+                <input
+                    id="email"
+                    name="email"
+                    placeholder="email"
+                    onChange={handleChanges}
+                    value={studentState.email}
+                    ref={register({
+                    required: 'Required',
+                    pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        message: "invalid email address"
+                    }
+                    })}
+                />
+                {errors.email && errors.email.message}
+                <label htmlFor="name">Student Name</label>
+                <input
+                    id="name"
+                    name="name"
+                    placeholder="name"
+                    onChange={handleChanges}
+                    value={studentState.name}
+                    ref={register({
+                        required: "Required",
+                        validate: value => value !== "admin" || "Nice try!"
+                    })}
+                />
+                {errors.name && errors.name.message}
 
-            <input
-                name="name"
-                placeholder="name"
-                onChange={handleChanges}
-                value={studentState.name}
-                ref={register({
-                    required: "Required",
-                    validate: value => value !== "admin" || "Nice try!"
-                })}
-            />
-            {errors.name && errors.name.message}
-
-            <button type="submit">Edit Student</button>
-        </form>
+                <button type="submit">Save Edit</button>
+            </form>
+        </LoginForm>
     )}
     
     </>

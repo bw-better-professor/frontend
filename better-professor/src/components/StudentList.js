@@ -58,11 +58,11 @@ const StudentList = () => {
                   <CardBody style={cardBodyStyle}>
                     <CardTitle>Name: {student.name}</CardTitle>
                     <CardText className="cardText">Email: {student.email}</CardText>
-                </CardBody>
-              </Card>
-            </Link>
-          );
-        })}
+                  </CardBody>
+                </Card>
+              </Link>
+            );
+          })}
         </CardList>
       </div>
     </div>

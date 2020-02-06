@@ -52,32 +52,38 @@ export const Button = styled.button`
 `;
 
 export const Nav = styled.nav`
-  width: 100%;
+  height: 4.4rem;
   background-color: #0A2738;
   padding: 1rem .5rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 `;
 
+export const HeadContainer = styled.div`
+display: flex;
+justify-content: center;
+`
+
 export const Head = styled.header`
-  width: 100%;
+  width: 90%;
+  height: 11rem;
   display: flex;
+  margin-bottom: 2rem;
+  align-items: center;
   justify-content: space-between;
 `;
 
 export const HLeft = styled.div`
   display: flex;
-  margin-left: .5rem;
+  padding: .5rem;
   align-items: center;
 `;
 
 export const HRight = styled.div`
+  justify-content: space-between;
   display: flex;
   align-items: center;
-  margin-right: .5rem;
 `;
-
-
 
 export const Buttons = styled.button`
 
@@ -99,7 +105,6 @@ display: block;
 box-sizing: border-box;
 width: 100%;
 border-radius: 4px;
-border: 1px solid gray;
 padding: 10px 15px;
 margin-bottom: 10px;
 font-size: 14px;
