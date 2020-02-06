@@ -49,6 +49,7 @@ const AddProject = (props) => {
         <>
         {localStorage.getItem("professorID") && localStorage.getItem("token") && (
             <LoginForm>
+                <div className="goBack" onClick={()=>history.push(`/student/${id}`)}>Back to Student Details</div>
                 <form className="loginForm">
                     <h1>Add Project</h1>
                     <label htmlFor="title">Title</label>
