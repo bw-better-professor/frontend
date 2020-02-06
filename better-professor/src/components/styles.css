@@ -120,3 +120,14 @@ a {
   width: 91%;
   justify-content: flex-end;
 }
+
+.goBack {
+  color: dodgerblue;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.goBack:hover{
+  color:#0A2738;
+  cursor: pointer;
+}
