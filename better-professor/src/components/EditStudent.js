@@ -58,7 +58,7 @@ return (
     <>
     {localStorage.getItem("professorID") && localStorage.getItem("token") && (
         <LoginForm>
-            <div className="goBack" onClick={()=>history.push(`/student/${id}`)}>Back to Student Details</div>
+            <span className="goBack" onClick={()=>history.push(`/student/${id}`)}>Back to Student Details</span>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <h1>Edit Student</h1>
                 <label htmlFor="email">Student Email</label>

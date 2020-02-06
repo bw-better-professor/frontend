@@ -30,7 +30,7 @@ const AddStudent = () => {
         <>
         {localStorage.getItem("professorID") && localStorage.getItem("token") && (
             <LoginForm>
-            <div className="goBack" onClick={()=>history.push("/dashboard")}>Back to Student List</div>
+            <span className="goBack" onClick={()=>history.push("/dashboard")}>Back to Student List</span>
             <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
                 <h1>Add Student</h1>
                 <label htmlFor="email">Student Email</label>
