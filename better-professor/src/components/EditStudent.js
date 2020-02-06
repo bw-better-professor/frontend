@@ -16,7 +16,6 @@ const EditStudent = () => {
       });
 
     const onSubmit = values => {
-        console.log(values)
 
         axiosWithAuth()
         .put(`/api/students/${id}`, {

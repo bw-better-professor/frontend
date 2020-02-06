@@ -107,6 +107,18 @@ margin-bottom: 10px;
 font-size: 14px;
 `
 
+export const LoginForm2 = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+box-sizing: border-box;
+width: 100%;
+border-radius: 4px;
+padding: 10px 15px;
+margin-bottom: 10px;
+font-size: 14px;
+`
+
 export const EditDeleteButtons = styled.button`
   margin: 1%;
   background-Color: #66889c;

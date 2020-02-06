@@ -80,6 +80,7 @@ a:hover {
 #header-login:hover {
   color: #0A2738;
   border-bottom: solid 1px #0A2738;
+  cursor: pointer;
 }
 
 #nav-link {
@@ -183,6 +184,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
   background-color: white;
 }
@@ -233,7 +235,18 @@ a {
 
 .projectsContainer{
   display: flex;
+  justify-content: center;
   width: 80%;
+  flex-wrap: wrap;
+  margin: 2% 0;
+}
+
+.projectsContainer2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   flex-wrap: wrap;
   margin: 2% 0;
 }
@@ -311,6 +324,7 @@ a {
 }
 
 .editDeleteButtons:hover {
+  cursor: pointer;
   color: white;
   background-color: #66889c;
 }
@@ -323,6 +337,7 @@ a {
 }
 
 .editDeleteButtons2:hover{
+  cursor: pointer;
   background-color: #b90e0e;
   color: white;
 }

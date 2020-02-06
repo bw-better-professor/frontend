@@ -38,7 +38,7 @@ const StudentDetails = props => {
       })
     })
     .catch(err => console.log(err));
-  }, [id, projectState])
+  }, [id])
 
   const deleteStudent = () => {
     axiosWithAuth()
@@ -77,7 +77,7 @@ const StudentDetails = props => {
           <span className="projectsAddButton">
             <button type="submit" onClick={()=>history.push(`/addproject/${id}`)}>Add Project</button>
           </span>
-          {(projectState.length===0) && (<h3>{studentState.name} currently has no projects. Please add a project.</h3>)}
+          {(projectState.length===0) && (<h3>{studentState.name} currently has no projects. Please add a project to manage.</h3>)}
         </div>
         <div className="projectsContainer">
           

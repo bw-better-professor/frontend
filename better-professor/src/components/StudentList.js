@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   Card,
   CardImg,
@@ -9,12 +9,12 @@ import {
   CardTitle,
   Button
 } from "reactstrap";
-import {CardList} from './styled-components';
+import {CardList, LoginForm2} from './styled-components';
 import './styles.css';
 
 const StudentList = () => {
   const [studentState, setStudentState] = useState([]);
-
+  const history = useHistory();
   const id = localStorage.getItem("professorID");
 
   useEffect(() => {
@@ -22,7 +22,6 @@ const StudentList = () => {
       .get(`api/users/${id}/students`)
       .then(res => {
         setStudentState(res.data);
-        console.log(res.data);
       })
       .catch(err => console.log(err));
   }, []);
@@ -45,28 +44,26 @@ const StudentList = () => {
   return (
     <div className="pageContainer">
       <div className="addStudentPage">
+        <div className="pageContainer">
+        <LoginForm2>
+          <div className="projectsContainer2">
         <h1>Welcome back, Professor.</h1>
         
-        <Link to="/addstudent" className="studentLink2">
-          <Button className="addStudentBtn"> Add Student </Button>
-        </Link>
+          <button onClick={()=>history.push("/addstudent")} type="submit" className="editDeleteButtons"> Add Student </button>
+          <div className="projectsContainer">
         {(studentState.length===0) && (<h3>You have no students. Please add a student to manage.</h3>)}
-        <CardList>
           {studentState.map(student => {
             return (
-
-              <Link to={`/student/${student.studentId}`} key={student.studentId} className="studentLink">
-                <Card style={cardStyle} className="hoverEffect">
-                  {/* <CardImg style={{paddingTop: "15px"}} src={student.image_url} alt="card-group" /> */}
-                  <CardBody style={cardBodyStyle}>
-                    <CardTitle>Name: {student.name}</CardTitle>
-                    <CardText className="cardText">Email: {student.email}</CardText>
-                  </CardBody>
-                </Card>
-              </Link>
+                <div onClick={()=>history.push(`/student/${student.studentId}`)} key={student.studentId} style={cardStyle} className="project">
+                    <h3>{student.name}</h3>
+                    <h4>{student.email}</h4>
+                </div>
             );
           })}
-        </CardList>
+          </div>
+          </div>
+        </LoginForm2>
+        </div>
       </div>
     </div>
   );

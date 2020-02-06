@@ -47,7 +47,20 @@ function RegForm() {
         })
         .then(res=> {
             console.log("successfully created a user.");
-            history.push(`/login`);
+        })
+        .then(res => {
+            Axios
+            .post(`https://betterprofessor25.herokuapp.com/api/auth/login`, {
+              "username": email.toString(),
+              "password": password.toString()
+            })
+            .then(res2=>{
+              console.log("successfully logged in as newly created user")
+              localStorage.setItem("token", res2.data.token);
+              localStorage.setItem("professorID", res2.data.id);
+              history.push(`/dashboard`);
+            })
+          
         })
         .catch(err=>{
             console.log(err, "failed to register")
