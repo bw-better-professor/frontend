@@ -28,9 +28,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={LoginForm} />
         
-        <Route path="/registration">
-          <RegForm />
-        </Route>
+        <Route path="/registration" component={RegForm} />
         <Route path="/login" component={LoginForm} />
         <PrivateRoute path="/dashboard" component={StudentList} />
         <PrivateRoute path="/student/:id/:projectId" component={ProjectDetails} />
@@ -44,7 +42,7 @@ function App() {
         <Route path="/addproject/:id" render={props=> {
           return <AddProject {...props} /> 
           }} />
-        {/* <Route component={LoginForm} /> */}
+        <Route component={LoginForm} />
       </Switch>
     </>
   );
