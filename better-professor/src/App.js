@@ -1,8 +1,7 @@
 
 import React from "react";
 
-import { Switch, Route, Redirect } from "react-router-dom";
-import styled from "styled-components";
+import { Switch, Route} from "react-router-dom";
 // import LoginBasic from "./components/LoginBasic";
 // import RegisterBasic from "./components/RegisterBasic";
 import PrivateRoute from "./components/PrivateRoute";
@@ -28,10 +27,11 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={LoginForm} />
-        <Route path="/login" component={LoginForm} />
+        
         <Route path="/registration">
           <RegForm />
         </Route>
+        <Route path="/login" component={LoginForm} />
         <PrivateRoute path="/dashboard" component={StudentList} />
         <PrivateRoute path="/student/:id/:projectId" component={ProjectDetails} />
         <Route path="/student/:id" render={props=> {
