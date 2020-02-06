@@ -51,7 +51,7 @@ const StudentList = () => {
         <CardList>
           {studentState.map(student => {
             return (
-
+              
               <Link to={`/student/${student.studentId}`} key={student.studentId} className="studentLink">
                 <Card style={cardStyle} className="hoverEffect">
                   {/* <CardImg style={{paddingTop: "15px"}} src={student.image_url} alt="card-group" /> */}
