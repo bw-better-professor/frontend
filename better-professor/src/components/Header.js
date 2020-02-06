@@ -3,7 +3,8 @@ import './styles.css';
 import {Link, useHistory} from 'react-router-dom';
 import {Head,
         HLeft,
-        HRight} from './styled-components';
+        HRight,
+      HeadContainer} from './styled-components';
 
 function Header() {
   const history = useHistory();
@@ -15,21 +16,28 @@ function Header() {
   }
 
   return(
-    <Head>
-      <Link to="/">
-        <HLeft>
-            <div id="headerLogo"> {/* Header Logo Here */} </div>
-            <div className="h-left">
-              <h1 id="app-name">Better Professor</h1>
-              <span id="app-description">Deadline Management App</span>
-            </div>
-        </HLeft>
-      </Link>
-      <HRight>
-        <div id="header-login" onClick={()=>history.push("/")}>Login</div>
-        <div id="header-login" onClick={delToken}>Logout</div>
-      </HRight>
-    </Head>
+    <HeadContainer>
+      <Head>
+        <Link to="/">
+          <HLeft>
+              <div id="headerLogo"> {/* Header Logo Here */} </div>
+              <div className="h-left">
+                <h1 id="app-name">Better Professor</h1>
+                <span id="app-description">Deadline Management App</span>
+              </div>
+          </HLeft>
+        </Link>
+        <HRight>
+        {localStorage.getItem("token") && localStorage.getItem("professorID") && (
+          <div id="header-login" onClick={delToken}>Logout</div>
+        )}
+        {!localStorage.getItem("token") && !localStorage.getItem("professorID") && (
+          <div id="header-login" onClick={()=>history.push("/")}>Login</div>
+        )}
+          
+        </HRight>
+      </Head>
+    </HeadContainer>
   );
 }
 
