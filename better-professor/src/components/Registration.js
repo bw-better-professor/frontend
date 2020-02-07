@@ -130,7 +130,7 @@ function RegForm() {
           {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
           {notMatching}
         </FormInfo>
-        <Button type="submit">Create Account</Button>
+        <Button>Create Account</Button>
         <div className="preUnderline">Already have an account? <span className="underline2" onClick={()=>history.push("/login")}>Log in here.</span></div>
       </FormField>
       {/* SIGN UP PAGE IMG */}
