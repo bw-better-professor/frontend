@@ -85,7 +85,7 @@ const Login2Form = () => {
 
 
         <buttons>
-          <input disabled={isSubmitting} value={"Log In"} type="submit3" />
+          <input disabled={isSubmitting} value={"Log In"} type="submit" />
           </buttons>
         <div>Don't have an account? <span className="underline" onClick={()=>history.push("/registration")}>Create one here.</span></div>
         </form>
