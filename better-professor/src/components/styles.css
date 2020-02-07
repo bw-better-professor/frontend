@@ -212,6 +212,18 @@ a {
   align-items: center;
 }
 
+.studentDetails2 {
+  margin-top: 1%;
+  width: 80%;
+  padding-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+  border: solid rgb(196, 196, 196) 1px;
+}
+
 .projectsSection {
   padding: 0 15px;
   width: 100%;
@@ -309,7 +321,7 @@ a {
 .notesSection{
   border: solid #66889c 1px;
   margin-top: 1%;
-  padding: 1%;
+  padding: 4%;
   text-align: center;
   background-color: white;
   width: 80%;

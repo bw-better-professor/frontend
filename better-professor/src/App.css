@@ -83,6 +83,7 @@ input[type="submit"] {
   padding: 1rem 4rem;
   border-radius: 10px;
   border: solid 1px #ddd;
+  width: 40rem;
 }
 
 button[type="submit"]:hover,
@@ -98,6 +99,44 @@ input[type="submit"]:active {
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
+}
+
+button[type="submit2"],
+input[type="submit2"] {
+  background: dodgerblue;
+  color: white;
+  border-style: none;
+  margin-top: 5%;
+  font-size: 2.4rem;
+  font-weight: bold;
+  transition: .25s;
+  padding: 1rem 4rem;
+  border-radius: 10px;
+  border: solid 1px #ddd;
+  width: 100%;
+}
+
+button[type="submit2"]:hover,
+input[type="submit2"]:hover {
+  background: #0A2738;
+  cursor: pointer;
+}
+
+button[type="submit2"]:active,
+input[type="button2"]:active,
+input[type="submit2"]:active {
+  transition: 0.3s all;
+  transform: translateY(3px);
+  border: 1px solid transparent;
+  opacity: 0.8;
+}
+
+.styleInput2{
+  width: 100%;
+}
+
+.styleInput2:focus {
+  border-color: dodgerblue;
 }
 
 input:disabled {

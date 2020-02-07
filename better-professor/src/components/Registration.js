@@ -65,7 +65,6 @@ function RegForm() {
         .catch(err=>{
             console.log(err, "failed to register")
         }) ) : // IF NOT, THEN -->
-
         ( setNotMatching('Passwords do not match!') )
     };
 
@@ -111,7 +110,8 @@ function RegForm() {
             placeholder="Create a password"
             onChange={changesPass}
             value={password}
-            ref={register({ required: "Must enter a password", minLength: {value: 7, message: "Password must be at least 7 characters long."} })}
+            ref={register({ required: "Must enter a password", 
+            minLength: {value: 7, message: "Password must be at least 7 characters long."} })}
           />
           {errors.password && <p>{errors.password.message}</p>}
         </FormInfo>
@@ -128,10 +128,10 @@ function RegForm() {
             ref={register({ required: "Must confirm password", minLength: {value: 7, message: "Not enough characters."} })}
           />
           {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-          <p>Password must be at least 7 characters long. {notMatching}</p>
+          {notMatching}
         </FormInfo>
         <Button type="submit">Create Account</Button>
-        <div className="preUnderline">Already have an account? <span className="underline2" onClick={()=>history.push("/login")}>Sign in here.</span></div>
+        <div className="preUnderline">Already have an account? <span className="underline2" onClick={()=>history.push("/login")}>Log in here.</span></div>
       </FormField>
       {/* SIGN UP PAGE IMG */}
       <div id="signUp">

@@ -4,6 +4,7 @@ import {useParams, useHistory} from "react-router-dom";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 import {LoginForm} from "./styled-components";
 import "./styles.css";
+import "../App.css";
 
 const EditStudent = () => {
     const { handleSubmit, register, errors } = useForm();
@@ -70,6 +71,7 @@ return (
                 <h1>Edit Student</h1>
                 <label htmlFor="email">Student Email</label>
                 <input
+                    className="styleInput2"
                     id="email"
                     name="email"
                     placeholder="email"
@@ -86,6 +88,7 @@ return (
                 {errors.email && errors.email.message}
                 <label htmlFor="name">Student Name</label>
                 <input
+                    className="styleInput2"
                     id="name"
                     name="name"
                     placeholder="name"
@@ -98,7 +101,7 @@ return (
                 />
                 {errors.name && errors.name.message}
 
-                <button type="submit">Save Edit</button>
+                <button type="submit2">Save Edit</button>
             </form>
             </div>
             </div>
