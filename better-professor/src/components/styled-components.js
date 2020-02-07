@@ -44,6 +44,17 @@ export const Button = styled.button`
   color: white;
   transition: .25s;
   text-transform: capitalize;
+  background: dodgerblue;
+  color: white;
+  border-style: none;
+  margin-top: 5%;
+  font-size: 2.4rem;
+  font-weight: bold;
+  transition: .25s;
+  padding: 1rem 4rem;
+  border-radius: 10px;
+  border: solid 1px #ddd;
+  text-align: center;
 
   &[type="submit"]:hover {
     background-color: #0A2738;
