@@ -1,11 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
 import { Switch, Route, Redirect } from "react-router-dom";
 import styled from "styled-components";
-=======
-
-import { Switch, Route} from "react-router-dom";
->>>>>>> 869e34527b47eb3f7a3d22f89fec3dee103af28a
 // import LoginBasic from "./components/LoginBasic";
 // import RegisterBasic from "./components/RegisterBasic";
 import PrivateRoute from "./components/PrivateRoute";
