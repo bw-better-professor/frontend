@@ -26,7 +26,7 @@ function App() {
       <Navigation />
 
       <Switch>
-        <Route exact path="/" component={StudentList} />
+        <PrivateRoute exact path="/" component={StudentList} />
         <Route path="/registration" component={RegForm} />
         <Route path="/login" component={LoginForm} />
         <PrivateRoute path="/dashboard" component={StudentList} />
@@ -41,7 +41,7 @@ function App() {
         <Route path="/addproject/:id" render={props=> {
           return <AddProject {...props} /> 
           }} />
-        <Route component={StudentList} />
+        <PrivateRoute component={StudentList} />
       </Switch>
     </>
   );
