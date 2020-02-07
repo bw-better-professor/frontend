@@ -52,11 +52,12 @@ export const Button = styled.button`
 `;
 
 export const Nav = styled.nav`
-  height: 4.4rem;
-  background-color: #0A2738;
-  padding: 1rem .5rem;
-  display: flex;
-  justify-content: center;
+display:flex;
+justify-content: flex-end;
+align-items:center;
+background-color: #0a2738;
+margin:0 0 10px 0;
+height: 46px;
 `;
 
 export const HeadContainer = styled.div`
@@ -83,7 +84,8 @@ export const HRight = styled.div`
   justify-content: space-between;
   display: flex;
   align-items: center;
-`;
+  margin-right: 4%;
+  `
 
 export const Buttons = styled.button`
 background: dodgerblue;
@@ -99,6 +101,18 @@ background: dodgerblue;
 
 export const LoginForm = styled.div`
 display: block;
+box-sizing: border-box;
+width: 100%;
+border-radius: 4px;
+padding: 10px 15px;
+margin-bottom: 10px;
+font-size: 14px;
+`
+
+export const LoginForm2 = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
 box-sizing: border-box;
 width: 100%;
 border-radius: 4px;

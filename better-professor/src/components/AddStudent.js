@@ -3,6 +3,7 @@ import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import {LoginForm} from "./styled-components";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
+import "./styles.css";
 
 const AddStudent = () => {
         const { handleSubmit, register, errors } = useForm();
@@ -31,7 +32,9 @@ const AddStudent = () => {
         {localStorage.getItem("professorID") && localStorage.getItem("token") && (
             <LoginForm>
             <span className="goBack" onClick={()=>history.push("/dashboard")}>Back to Student List</span>
-            <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+            <div className="pageContainer2">
+                <div className="sectionContainer2">
+            <form className="loginForm2" onSubmit={handleSubmit(onSubmit)}>
                 <h1>Add Student</h1>
                 <label htmlFor="email">Student Email</label>
                 <input
@@ -62,6 +65,13 @@ const AddStudent = () => {
 
                 <button type="submit">Add Student</button>
             </form>
+            </div>
+            <div className="sectionContainer2">
+            <div id="signUp">
+        {/* Sign Up Graphic Here */}
+      </div>
+            </div>
+            </div>
             </LoginForm>
         )}
         

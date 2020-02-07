@@ -3,6 +3,7 @@ import {useForm} from "react-hook-form";
 import {useParams, useHistory} from "react-router-dom";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 import {LoginForm} from "./styled-components";
+import "./styles.css";
 
 const EditStudent = () => {
     const { handleSubmit, register, errors } = useForm();
@@ -16,7 +17,6 @@ const EditStudent = () => {
       });
 
     const onSubmit = values => {
-        console.log(values)
 
         axiosWithAuth()
         .put(`/api/students/${id}`, {
@@ -59,7 +59,14 @@ return (
     {localStorage.getItem("professorID") && localStorage.getItem("token") && (
         <LoginForm>
             <span className="goBack" onClick={()=>history.push(`/student/${id}`)}>Back to Student Details</span>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="pageContainer2">
+            <div className="sectionContainer2">
+            <div id="signUp">
+        {/* Sign Up Graphic Here */}
+      </div>
+            </div>
+                <div className="sectionContainer2">
+            <form className="loginForm2" onSubmit={handleSubmit(onSubmit)}>
                 <h1>Edit Student</h1>
                 <label htmlFor="email">Student Email</label>
                 <input
@@ -93,6 +100,8 @@ return (
 
                 <button type="submit">Save Edit</button>
             </form>
+            </div>
+            </div>
         </LoginForm>
     )}
     

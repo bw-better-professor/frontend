@@ -1,6 +1,11 @@
 import React from "react";
+<<<<<<< HEAD
 import { Switch, Route, Redirect } from "react-router-dom";
 import styled from "styled-components";
+=======
+
+import { Switch, Route} from "react-router-dom";
+>>>>>>> 869e34527b47eb3f7a3d22f89fec3dee103af28a
 // import LoginBasic from "./components/LoginBasic";
 // import RegisterBasic from "./components/RegisterBasic";
 import PrivateRoute from "./components/PrivateRoute";
@@ -25,11 +30,9 @@ function App() {
       <Navigation />
 
       <Switch>
-        <Route exact path="/" component={LoginForm} />
+        <PrivateRoute exact path="/" component={StudentList} />
+        <Route path="/registration" component={RegForm} />
         <Route path="/login" component={LoginForm} />
-        <Route path="/registration">
-          <RegForm />
-        </Route>
         <PrivateRoute path="/dashboard" component={StudentList} />
         <PrivateRoute path="/student/:id/:projectId" component={ProjectDetails} />
         <Route path="/student/:id" render={props=> {
@@ -42,7 +45,7 @@ function App() {
         <Route path="/addproject/:id" render={props=> {
           return <AddProject {...props} /> 
           }} />
-        <Route component={LoginForm} />
+        <PrivateRoute component={StudentList} />
       </Switch>
     </>
   );

@@ -46,8 +46,21 @@ function RegForm() {
           "password": password.toString()
         })
         .then(res=> {
-            console.log("successfully created a user.", res);
-            history.push(`/login`);
+            console.log("successfully created a user.");
+        })
+        .then(res => {
+            Axios
+            .post(`https://betterprofessor25.herokuapp.com/api/auth/login`, {
+              "username": email.toString(),
+              "password": password.toString()
+            })
+            .then(res2=>{
+              console.log("successfully logged in as newly created user")
+              localStorage.setItem("token", res2.data.token);
+              localStorage.setItem("professorID", res2.data.id);
+              history.push(`/dashboard`);
+            })
+          
         })
         .catch(err=>{
             console.log(err, "failed to register")
@@ -59,6 +72,7 @@ function RegForm() {
   return(
     <FormPage>
       <FormField onSubmit={handleSubmit(onSubmit)}>
+        <h1>Create an Account</h1>
         {/* NAME */}
         {/* <FormInfo>
           <label htmlFor="name">Full Name</label>
@@ -117,6 +131,7 @@ function RegForm() {
           <p>Password must be at least 7 characters long. {notMatching}</p>
         </FormInfo>
         <Button type="submit">Create Account</Button>
+        <div className="preUnderline">Already have an account? <span className="underline2" onClick={()=>history.push("/login")}>Sign in here.</span></div>
       </FormField>
       {/* SIGN UP PAGE IMG */}
       <div id="signUp">
