@@ -131,6 +131,7 @@ function RegForm() {
           <p>Password must be at least 7 characters long. {notMatching}</p>
         </FormInfo>
         <Button type="submit">Create Account</Button>
+        <div className="preUnderline">Already have an account? <span className="underline2" onClick={()=>history.push("/login")}>Sign in here.</span></div>
       </FormField>
       {/* SIGN UP PAGE IMG */}
       <div id="signUp">

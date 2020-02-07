@@ -374,6 +374,15 @@ a {
   text-decoration: underline;
 }
 
-.underline:hover{
+.preUnderline{
+  font-size: 1.4rem;
+}
+
+.underline2{
+  text-decoration: underline;
+  font-size: 1.4rem;
+}
+
+.underline:hover, .underline2:hover{
    cursor: pointer;
 }
