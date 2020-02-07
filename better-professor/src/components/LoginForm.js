@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
 import {LoginForm} from './styled-components';
 import "./styles.css";
+import "../App.css";
 
 
 const Login2Form = () => {
@@ -53,11 +54,11 @@ const Login2Form = () => {
         <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
           <h1>Log In</h1>
           <label htmlFor="email">Email</label>
-          <input id="email" placeholder="Enter Email Here" name="Email" ref={register({ required: true })} />
+          <input className="styleInput3" id="email" placeholder="Enter Email Here" name="Email" ref={register({ required: true })} />
           <ErrorMessage error={errors.firstName} />
 
           <label htmlFor="password">Password</label>
-          <input id="password" placeholder="Enter Password Here" name="PassWord" type="password" ref={register({ required: true, minLength: 2 })} />
+          <input className="styleInput3" id="password" placeholder="Enter Password Here" name="PassWord" type="password" ref={register({ required: true, minLength: 2 })} />
           <ErrorMessage error={errors.firstName} />
 
 
@@ -84,7 +85,7 @@ const Login2Form = () => {
 
 
         <buttons>
-          <input disabled={isSubmitting} value={"Log In"} type="submit" />
+          <input disabled={isSubmitting} value={"Log In"} type="submit3" />
           </buttons>
         <div>Don't have an account? <span className="underline" onClick={()=>history.push("/registration")}>Create one here.</span></div>
         </form>
