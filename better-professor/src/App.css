@@ -87,6 +87,11 @@ input[type="submit"] {
   text-align: center;
 }
 
+input[type="submit"]{
+  width: 147%;
+}
+
+
 button[type="submit"]:hover,
 input[type="submit"]:hover {
   background: #0A2738;
