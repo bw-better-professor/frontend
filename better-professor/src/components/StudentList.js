@@ -26,7 +26,7 @@ const StudentList = () => {
           <div className="projectsContainer2">
         <h1>Welcome back, Professor.</h1>
         
-          <button onClick={()=>history.push("/addstudent")} type="submit" className="editDeleteButtons"> Add Student </button>
+          <button onClick={()=>history.push("/addstudent")} type="submit"> Add Student </button>
           <div className="projectsContainer">
         {(studentState.length===0) && (<h3>You have no students. Please add a student to manage.</h3>)}
           {studentState.map(student => {

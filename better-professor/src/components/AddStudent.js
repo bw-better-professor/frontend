@@ -4,6 +4,7 @@ import {useHistory} from "react-router-dom";
 import {LoginForm} from "./styled-components";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 import "./styles.css";
+import "../App.css";
 
 const AddStudent = () => {
         const { handleSubmit, register, errors } = useForm();
@@ -36,8 +37,23 @@ const AddStudent = () => {
                 <div className="sectionContainer2">
             <form className="loginForm2" onSubmit={handleSubmit(onSubmit)}>
                 <h1>Add Student</h1>
+
+                <label htmlFor="name">Student Name</label>
+                <input 
+                    className="styleInput2"
+                    id="name"
+                    name="name"
+                    placeholder="Student Name Here"
+                    ref={register({
+                        required: "Required",
+                        // validate: value => value !== "admin" || "Nice try!"
+                    })}
+                />
+                {errors.name && errors.name.message}
+
                 <label htmlFor="email">Student Email</label>
                 <input
+                    className="styleInput2"
                     id="email"
                     name="email"
                     placeholder="Student Email Here"
@@ -51,19 +67,9 @@ const AddStudent = () => {
                 />
                 {errors.email && errors.email.message}
 
-                <label htmlFor="name">Student Name</label>
-                <input
-                    id="name"
-                    name="name"
-                    placeholder="Student Name Here"
-                    ref={register({
-                        required: "Required",
-                        // validate: value => value !== "admin" || "Nice try!"
-                    })}
-                />
-                {errors.name && errors.name.message}
+                
 
-                <button type="submit">Add Student</button>
+                <button type="submit2">Add Student</button>
             </form>
             </div>
             <div className="sectionContainer2">

@@ -3,6 +3,7 @@ import {useHistory, useParams} from "react-router-dom";
 import {LoginForm} from "./styled-components";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 import "./styles.css";
+import "../App.css";
 
 const initialState = {
     student_id: "",
@@ -55,14 +56,14 @@ const AddProject = (props) => {
                 <form className="loginForm2">
                     <h1>Add Project</h1>
                     <label htmlFor="title">Title</label>
-                    <input id="title" type="text" onChange={handleChanges} name="title" value={project.title} placeholder="Enter Title Here"/>
+                    <input className="styleInput2" id="title" type="text" onChange={handleChanges} name="title" value={project.title} placeholder="Enter Title Here"/>
                     <label htmlFor="due_date">Due Date</label>
-                    <input id="due_date" type="date" onChange={handleChanges} name="due_date" value={project.due_date} placeholder="Set Due Date"/>
+                    <input className="styleInput2" id="due_date" type="date" onChange={handleChanges} name="due_date" value={project.due_date} placeholder="Set Due Date"/>
                     <label htmlFor="reminder_time">Reminder Time</label>
-                    <input id="reminder_time" type="time" onChange={handleChanges} name="reminder_time" value={project.reminder_time} placeholder="Set Reminder Time"/>
+                    <input className="styleInput2" id="reminder_time" type="time" onChange={handleChanges} name="reminder_time" value={project.reminder_time} placeholder="Set Reminder Time"/>
                     <label htmlFor="notes">Notes</label>
-                    <input id="notes" type="textarea" onChange={handleChanges} name="notes" value={project.notes} placeholder="Enter Notes Here"/>
-                    <button type="submit" onClick={handleSubmit}>Add Project</button>
+                    <input className="styleInput2" id="notes" type="textarea" onChange={handleChanges} name="notes" value={project.notes} placeholder="Enter Notes Here"/>
+                    <button type="submit2" onClick={handleSubmit}>Add Project</button>
                 </form>
                 </div>
                 <div className="sectionContainer2">

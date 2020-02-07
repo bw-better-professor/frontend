@@ -68,7 +68,7 @@ const ProjectDetails = props => {
 
       
       <div className="studentDetailsContainer"> 
-        <div className="studentDetails">
+        <div className="studentDetails2">
           {/* <img src={studentState.image_url} /> */}
 
             <div className="projectDetailLine">

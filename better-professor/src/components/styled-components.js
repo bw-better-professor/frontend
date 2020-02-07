@@ -25,7 +25,6 @@ export const FormInfo = styled.div`
 `;
 
 export const Input = styled.input`
-  border: solid 1px #ddd;
   border-radius: 5px;
   padding: .5rem;
   width: 30rem;
@@ -40,7 +39,7 @@ export const Button = styled.button`
   padding: .5rem;
   border-radius: 10px;
   background-color: #2196F3;
-  width: 28rem;
+  width: 30rem;
   border-style: none;
   color: white;
   transition: .25s;
