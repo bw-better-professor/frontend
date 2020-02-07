@@ -109,9 +109,24 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
+button[type="submit3"]:hover,
+input[type="submit3"]:hover {
+  background: #0A2738;
+  cursor: pointer;
+}
+
 button[type="submit"]:active,
 input[type="button"]:active,
 input[type="submit"]:active {
+  transition: 0.3s all;
+  transform: translateY(3px);
+  border: 1px solid transparent;
+  opacity: 0.8;
+}
+
+button[type="submit3"]:active,
+input[type="button3"]:active,
+input[type="submit3"]:active {
   transition: 0.3s all;
   transform: translateY(3px);
   border: 1px solid transparent;
